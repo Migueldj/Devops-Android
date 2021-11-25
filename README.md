@@ -6,8 +6,6 @@ Por favor no hagan merge si no están seguros de sus cambios
 
 Les dejo los comandos para clonar una rama específica y también para que creen una rama.
 
-git clone -b <branchname> <remote-repo-url>
+git clone -b branchname remote-repo-url
 
-git checkout -b <su_nombre>
-
-OJO todo va sin los picoparéntesis.
+git checkout -b su_nombre
