@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRefri">
         <activity
+            android:name=".ShoppingList"
+            android:exported="true" />
+        <activity
+            android:name=".Status"
+            android:exported="true" />
+        <activity
+            android:name=".Interfaz"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
