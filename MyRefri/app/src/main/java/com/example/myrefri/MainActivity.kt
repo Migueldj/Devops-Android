@@ -3,19 +3,26 @@ package com.example.myrefri
 import android.content.Intent
 import android.os.Binder
 import android.os.Bundle
+import com.google.firebase.analytics.FirebaseAnalytics
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myrefri.databinding.ActivityMainBinding
 import java.util.*
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
+        val analytics = FirebaseAnalytics.getInstance(this)
+        val bundle = Bundle()
+        bundle.putString("message","Firebase al 100")
+        analytics.logEvent("InitScreen", bundle)
+
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
@@ -45,5 +52,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,Status::class.java)
             startActivity(intent)
         }
+        
     }
 }
