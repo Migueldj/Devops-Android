@@ -28,8 +28,5 @@ class Status : AppCompatActivity() {
             val intent = Intent(this,ShoppingList::class.java)
             startActivity(intent)
         }
-
-
-
     }
 }
