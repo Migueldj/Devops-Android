@@ -1,7 +1,9 @@
 package com.example.myrefri
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 
 class Status : AppCompatActivity() {
@@ -21,7 +23,11 @@ class Status : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
 
-        //Llamado de funciones
+        val button = findViewById<Button>(R.id.btn_lista)
+        button.setOnClickListener{
+            val intent = Intent(this,ShoppingList::class.java)
+            startActivity(intent)
+        }
 
 
 

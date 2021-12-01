@@ -1,8 +1,10 @@
 package com.example.myrefri
 
+import android.content.Intent
 import android.os.Binder
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myrefri.databinding.ActivityMainBinding
@@ -37,5 +39,11 @@ class MainActivity : AppCompatActivity() {
         mBinding.desplegable4.adapter = Nivel4
         mBinding.desplegable5.adapter = Nivel5
         mBinding.desplegable6.adapter = Nivel6
+
+        val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
+        button.setOnClickListener{
+            val intent = Intent(this,Status::class.java)
+            startActivity(intent)
+        }
     }
 }
