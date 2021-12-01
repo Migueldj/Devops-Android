@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
-        <entry key="..\:/Users/User/Documents/PROYECTO-DEVOPS/Devops-Android/MyRefri/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-
+        <entry key="..\:/Users/Mike/Desktop/DevopsIotFridge/Devops-Android/MyRefri/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Clases Uni/TSM/Proyecto/Devops-Android/MyRefri/app/src/main/res/layout/activity_interfaz.xml" value="0.23052536231884058" />
+        <entry key="..\:/Clases Uni/TSM/Proyecto/Devops-Android/MyRefri/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Clases Uni/TSM/Proyecto/Devops-Android/MyRefri/app/src/main/res/layout/activity_pseudo_notif.xml" value="0.25416666666666665" />
+        <entry key="..\:/Clases Uni/TSM/Proyecto/Devops-Android/MyRefri/app/src/main/res/layout/activity_shopping_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Clases Uni/TSM/Proyecto/Devops-Android/MyRefri/app/src/main/res/layout/activity_status.xml" value="0.23052536231884058" />
+        <entry key="..\:/Clases Uni/TSM/Proyecto/Devops-Android/MyRefri/app/src/main/res/layout/interfazsecundaria.xml" value="0.23052536231884058" />
+        <entry key="..\:/Users/User/Documents/PROYECTO-DEVOPS/Devops-Android/MyRefri/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/User/Documents/PROYECTO-DEVOPS/Devops-Android/MyRefri/app/src/main/res/layout/activity_pseudo_notif.xml" value="0.28489583333333335" />
+        <entry key="..\:/Users/User/Documents/PROYECTO-DEVOPS/Devops-Android/MyRefri/app/src/main/res/layout/activity_shopping_list.xml" value="0.3625" />
+        <entry key="..\:/Users/User/Documents/PROYECTO-DEVOPS/Devops-Android/MyRefri/app/src/main/res/layout/activity_status.xml" value="0.3625" />
+        <entry key="..\:/Users/victo/Documents/FI 9/TSM Devops/Proyecto/Aplicacion/Devops-Android/MyRefri/app/src/main/res/layout/activity_main.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/victo/Documents/FI 9/TSM Devops/Proyecto/Aplicacion/Devops-Android/MyRefri/app/src/main/res/layout/activity_pseudo_notif.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/victo/Documents/FI 9/TSM Devops/Proyecto/Aplicacion/Devops-Android/MyRefri/app/src/main/res/layout/activity_shopping_list.xml" value="0.25025641025641027" />
       </map>
     </option>
   </component>

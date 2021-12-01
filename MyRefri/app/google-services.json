@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041130782558",
+    "project_id": "smartfridge-16ef6",
+    "storage_bucket": "smartfridge-16ef6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041130782558:android:bddd129a7fcc78c23a99cf",
+        "android_client_info": {
+          "package_name": "com.example.myrefri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041130782558-hh24rg0ncgmttnthalo01jcs4tcs22fl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9MQFED2wiOfp0TkWCnT2tSni2C2_SGSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041130782558-hh24rg0ncgmttnthalo01jcs4tcs22fl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
