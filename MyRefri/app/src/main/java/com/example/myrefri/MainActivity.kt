@@ -1,6 +1,8 @@
 package com.example.myrefri
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Binder
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -13,6 +15,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
+    private val sharedPrefFile = "kotlinsharedpreference"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +50,19 @@ class MainActivity : AppCompatActivity() {
         mBinding.desplegable5.adapter = Nivel5
         mBinding.desplegable6.adapter = Nivel6
 
+        val inputNv1 = findViewById<Spinner>(R.id.desplegable_1)
+
+        val sharedPreferences: SharedPreferences = this.getSharedPreferences(sharedPrefFile,
+            Context.MODE_PRIVATE)
+
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
             val intent = Intent(this,Status::class.java)
+            val comidaNv1: String = inputNv1.selectedItem.toString()
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putString("comida_nv1", comidaNv1)
+            editor.apply()
+            editor.commit()
             startActivity(intent)
         }
         
