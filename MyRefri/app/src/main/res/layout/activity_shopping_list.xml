@@ -15,10 +15,12 @@
         android:text="LISTA DE COMPRAS"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="39dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
 
     <CheckBox
         android:id="@+id/cbxCarne"
@@ -30,8 +32,9 @@
         android:text="Carne roja"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/cbxHelado2"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        tools:layout_editor_absoluteX="86dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <CheckBox
         android:id="@+id/cbxLeche2"
@@ -109,13 +112,13 @@
         android:id="@+id/BtnListaSS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:background="#FF5722"
         android:backgroundTint="#FF5722"
         android:text="Generar lista"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="#FF5722"
-        tools:layout_editor_absoluteY="602dp" />
+        app:rippleColor="#FF5722" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
