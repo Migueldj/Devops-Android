@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E37CC1"
+    tools:context=".ShoppingList">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="none"
+        android:text="LISTA DE COMPRAS"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="39dp" />
+
+    <CheckBox
+        android:id="@+id/cbxCarne"
+        style="@android:style/Widget.Holo.Light.CompoundButton.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:clickable="false"
+        android:text="Carne roja"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cbxHelado2"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:layout_editor_absoluteX="86dp" />
+
+    <CheckBox
+        android:id="@+id/cbxLeche2"
+        style="@android:style/Widget.Holo.Light.CompoundButton.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:clickable="false"
+        android:text="Leche"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cbxSalchicha"
+        app:layout_constraintStart_toStartOf="@+id/cbxHelado2"
+        app:layout_constraintTop_toBottomOf="@+id/cbxHelado2" />
+
+    <CheckBox
+        android:id="@+id/cbxSalchicha"
+        style="@android:style/Widget.Holo.Light.CompoundButton.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:clickable="false"
+        android:text="Salchicha"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cbxQueso"
+        app:layout_constraintStart_toStartOf="@+id/cbxLeche2"
+        app:layout_constraintTop_toBottomOf="@+id/cbxLeche2" />
+
+    <CheckBox
+        android:id="@+id/cbxQueso"
+        style="@android:style/Widget.Holo.Light.CompoundButton.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:clickable="false"
+        android:text="Queso"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/BtnComprarEnLinea"
+        app:layout_constraintStart_toStartOf="@+id/cbxSalchicha"
+        app:layout_constraintTop_toBottomOf="@+id/cbxSalchicha" />
+
+    <CheckBox
+        android:id="@+id/cbxHelado2"
+        style="@android:style/Widget.Holo.Light.CompoundButton.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:clickable="false"
+        android:text="Helado"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cbxLeche2"
+        app:layout_constraintStart_toStartOf="@+id/cbxCarne"
+        app:layout_constraintTop_toBottomOf="@+id/cbxCarne" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="80dp" />
+
+    <Button
+        android:id="@+id/BtnComprarEnLinea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#FF5722"
+        android:backgroundTint="#FF5722"
+        android:text="Comprar en linea"
+        app:layout_constraintBottom_toTopOf="@+id/BtnListaSS"
+        app:layout_constraintEnd_toEndOf="@+id/BtnListaSS"
+        app:layout_constraintStart_toStartOf="@+id/BtnListaSS"
+        app:rippleColor="#FF5722" />
+
+    <Button
+        android:id="@+id/BtnListaSS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF5722"
+        android:backgroundTint="#FF5722"
+        android:text="Generar lista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#FF5722"
+        tools:layout_editor_absoluteY="602dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
