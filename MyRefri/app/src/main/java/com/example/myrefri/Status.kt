@@ -8,6 +8,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+<<<<<<< HEAD
+=======
+import org.w3c.dom.Text
+>>>>>>> 404e29fdc160e58e0ddd4b3542009ea103effed8
 
 class Status : AppCompatActivity() {
 
@@ -30,17 +34,15 @@ class Status : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
+        val comida1:String = intent.getStringExtra("Nivel1").toString()
+        val refri1:TextView= findViewById(R.id.textViewNv1)
+        refri1.text = comida1
 
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences(sharedPrefFile,
-            Context.MODE_PRIVATE)
-
-        val sharedNv1 = sharedPreferences.getString("comidaNv1","")
-        outputNv1.setText(sharedNv1).toString()
 
         val button = findViewById<Button>(R.id.btn_lista)
         button.setOnClickListener{
-            val intent = Intent(this,ShoppingList::class.java)
-            startActivity(intent)
+            val intent2 = Intent(this,ShoppingList::class.java)
+            startActivity(intent2)
         }
 
 

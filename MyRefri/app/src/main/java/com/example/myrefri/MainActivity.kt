@@ -5,10 +5,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Binder
 import android.os.Bundle
+import android.view.View
+import android.widget.*
 import com.google.firebase.analytics.FirebaseAnalytics
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myrefri.databinding.ActivityMainBinding
 import java.util.*
@@ -50,19 +49,13 @@ class MainActivity : AppCompatActivity() {
         mBinding.desplegable5.adapter = Nivel5
         mBinding.desplegable6.adapter = Nivel6
 
-        val inputNv1 = findViewById<Spinner>(R.id.desplegable_1)
 
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences(sharedPrefFile,
-            Context.MODE_PRIVATE)
-
+        val nivel1 = findViewById<Spinner>(R.id.desplegable_1)
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
+            var texto1:String = nivel1.selectedItem.toString()
             val intent = Intent(this,Status::class.java)
-            val comidaNv1: String = inputNv1.selectedItem.toString()
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("comida_nv1", comidaNv1)
-            editor.apply()
-            editor.commit()
+            intent.putExtra("Nivel1",texto1)
             startActivity(intent)
         }
         

@@ -85,6 +85,21 @@
         app:layout_constraintVertical_bias="0.303" />
 
     <TextView
+        android:id="@+id/ptxt_carne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toEndOf="@+id/textViewNv1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,18 +130,17 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/txtNv1"
+
+        android:id="@+id/textViewNv1"
         android:layout_width="56dp"
         android:layout_height="64dp"
-        android:textColor="#FFFFFF"
-        android:text=""
+        android:textColor="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163"
-        app:srcCompat="@drawable/carne" />
+        app:layout_constraintVertical_bias="0.163"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -143,6 +157,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.081" />
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/ptxt_carne"
         android:layout_width="wrap_content"
@@ -158,6 +173,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.173" />
 
+=======
+>>>>>>> 404e29fdc160e58e0ddd4b3542009ea103effed8
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="59dp"
