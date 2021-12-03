@@ -8,10 +8,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-<<<<<<< HEAD
-=======
 import org.w3c.dom.Text
->>>>>>> 404e29fdc160e58e0ddd4b3542009ea103effed8
+
 
 class Status : AppCompatActivity() {
 
@@ -22,14 +20,12 @@ class Status : AppCompatActivity() {
     var p_leche: Int = 100
     var p_salchicha: Int = 100
     var p_queso: Int = 100
-
     var sp_carne: String =""
     var sp_paleta: String = ""
     var sp_leche: String = ""
     var sp_salchicha: String = ""
     var sp_queso: String = ""
 
-    val outputNv1 = findViewById<TextView>(R.id.txtNv1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
