@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import org.w3c.dom.Text
 
 class Status : AppCompatActivity() {
     var p_carne: Int = 100
@@ -23,10 +25,14 @@ class Status : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
 
+        val comida1:String = intent.getStringExtra("Nivel1").toString()
+        val refri1:TextView= findViewById(R.id.textViewNv1)
+        refri1.text = comida1
+
         val button = findViewById<Button>(R.id.btn_lista)
         button.setOnClickListener{
-            val intent = Intent(this,ShoppingList::class.java)
-            startActivity(intent)
+            val intent2 = Intent(this,ShoppingList::class.java)
+            startActivity(intent2)
         }
 
 
