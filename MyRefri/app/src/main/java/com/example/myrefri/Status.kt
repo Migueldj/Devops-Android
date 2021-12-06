@@ -22,7 +22,7 @@ class Status : AppCompatActivity() {
     var porc_n4: Int = 100
     var porc_n5: Int = 100
 
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
@@ -64,7 +64,7 @@ class Status : AppCompatActivity() {
         val pn1:TextView = findViewById(R.id.tv_pn1)
         pn1.text=(porc_n1/4).toString()+"%"
         if(comida1=="Res"){
-            imv_n1.setImageResource(R.drawable.carne)
+            imv_n1.setImageResource(R.drawable.res)
         }else if(comida1=="Puerco"){
             imv_n1.setImageResource(R.drawable.puerco)
         }else if(comida1=="Pollo"){
