@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
 
@@ -74,8 +72,9 @@ class MainActivity : AppCompatActivity() {
             var texto6:String = nivel6.selectedItem.toString()
 
             //Pasar a la siguiente actividad
-            val intent = Intent(this,StatusV2::class.java)
+            val intent = Intent(this,Status::class.java)
 
+            //Enivar información de los textos a la siguiente ventana
             intent.putExtra("Nivel1",texto1)
             intent.putExtra("Nivel2",texto2)
             intent.putExtra("Nivel3",texto3)
