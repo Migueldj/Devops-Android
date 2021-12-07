@@ -1,18 +1,20 @@
 package com.example.myrefri
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Binder
 import android.os.Bundle
+import android.view.View
+import android.widget.*
 import com.google.firebase.analytics.FirebaseAnalytics
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myrefri.databinding.ActivityMainBinding
 import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
+    private val sharedPrefFile = "kotlinsharedpreference"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +49,40 @@ class MainActivity : AppCompatActivity() {
         mBinding.desplegable5.adapter = Nivel5
         mBinding.desplegable6.adapter = Nivel6
 
+
+        //Variables para guardar la opción elegida y mandarla a la siguiente ventana
+        val nivel1 = findViewById<Spinner>(R.id.desplegable_1)
+        val nivel2 = findViewById<Spinner>(R.id.desplegable_2)
+        val nivel3 = findViewById<Spinner>(R.id.desplegable_3)
+        val nivel4 = findViewById<Spinner>(R.id.desplegable_4)
+        val nivel5 = findViewById<Spinner>(R.id.desplegable_5)
+        val nivel6 = findViewById<Spinner>(R.id.desplegable_6)
+
+
+
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
+
+            //Mandar información a la siguiente actividad
+            var texto1:String = nivel1.selectedItem.toString()
+            var texto2:String = nivel2.selectedItem.toString()
+            var texto3:String = nivel3.selectedItem.toString()
+            var texto4:String = nivel4.selectedItem.toString()
+            var texto5:String = nivel5.selectedItem.toString()
+            var texto6:String = nivel6.selectedItem.toString()
+
+            //Pasar a la siguiente actividad
             val intent = Intent(this,Status::class.java)
+
+            //Enivar información de los textos a la siguiente ventana
+            intent.putExtra("Nivel1",texto1)
+            intent.putExtra("Nivel2",texto2)
+            intent.putExtra("Nivel3",texto3)
+            intent.putExtra("Nivel4",texto4)
+            intent.putExtra("Nivel5",texto5)
+            intent.putExtra("Nivel6",texto6)
+
+
             startActivity(intent)
         }
         
