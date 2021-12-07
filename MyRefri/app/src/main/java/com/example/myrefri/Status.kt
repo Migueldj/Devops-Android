@@ -42,7 +42,7 @@ class Status : AppCompatActivity() {
 
         val comida4:String = intent.getStringExtra("Nivel4").toString()
         val refri4: TextView = findViewById(R.id.tv_cn4)
-        refri4.text = comida1
+        refri4.text = comida4
 
         val comida5:String = intent.getStringExtra("Nivel5").toString()
         val refri5: TextView = findViewById(R.id.tv_cn5)
