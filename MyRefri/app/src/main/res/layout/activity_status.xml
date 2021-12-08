@@ -76,7 +76,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="16sp" />
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
@@ -161,7 +162,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="16sp" />
 
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
@@ -247,7 +249,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="16sp" />
 
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
@@ -333,7 +336,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="16sp" />
 
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
@@ -419,7 +423,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="16sp" />
 
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
@@ -505,7 +510,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="16sp" />
 
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
