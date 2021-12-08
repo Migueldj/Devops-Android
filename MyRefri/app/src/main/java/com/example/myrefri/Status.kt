@@ -21,84 +21,32 @@ class Status : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
 
-        //Función para configurar al textView
-        fun config_tv(s_nivel:String,tv_resource:Int){
-            val comida_selec :String = intent.getStringExtra(s_nivel).toString()
-            val tv: TextView  =  findViewById(tv_resource)
-            tv.text=comida_selec
-        }
+        //La variable comida_n, guarda la comida seleccionada de la actividad anterior
+        val comida_n1:String =intent.getStringExtra("Nivel1").toString()
+        val comida_n2:String =intent.getStringExtra("Nivel2").toString()
+        val comida_n3:String =intent.getStringExtra("Nivel3").toString()
+        val comida_n4:String =intent.getStringExtra("Nivel4").toString()
+        val comida_n5:String =intent.getStringExtra("Nivel5").toString()
+        val comida_n6:String =intent.getStringExtra("Nivel6").toString()
 
-        //Función para configurar el imageView
-        fun config_imv(s_nivel:String,i_nivel:Int,imv_resource:Int){
-            val comida_selec :String = intent.getStringExtra(s_nivel).toString()
-            val imv:ImageView =  findViewById(imv_resource)
-            if(i_nivel==1){
-                when(comida_selec){
-                    "Res" ->     imv.setImageResource(R.drawable.res)
-                    "Puerco" ->  imv.setImageResource(R.drawable.puerco)
-                    "Pollo"  ->  imv.setImageResource(R.drawable.pollo)
-                    "Pescado" -> imv.setImageResource(R.drawable.pescado)
-                }
-            }
-            if(i_nivel==2){
-                when(comida_selec){
-                    "Paletas" ->     imv.setImageResource(R.drawable.paleta)
-                    "Helado" ->  imv.setImageResource(R.drawable.helado)
-                    "Chocolate"  ->  imv.setImageResource(R.drawable.chocolate)
-                }
-            }
-            if(i_nivel==3){
-                when(comida_selec){
-                    "Quesos" ->     imv.setImageResource(R.drawable.queso)
-                    "Jamon" ->  imv.setImageResource(R.drawable.jamon)
-                    "Salchicha"  ->  imv.setImageResource(R.drawable.salchicha)
-                }
-            }
-            if(i_nivel==4){
-                when(comida_selec){
-                    "Yogurt" ->     imv.setImageResource(R.drawable.yogurt)
-                    "Leche" ->  imv.setImageResource(R.drawable.leche)
-                    "Gelatina"  ->  imv.setImageResource(R.drawable.gelatina)
-                    "Huevo" -> imv.setImageResource(R.drawable.huevos)
-                }
-            }
-            if(i_nivel==5){
-                when(comida_selec){
-                    "Comida Sobrante" -> imv.setImageResource(R.drawable.comidasobrante)
-                    "Agua" ->  imv.setImageResource(R.drawable.agua)
-                }
-            }
-            if(i_nivel==6){
-                when(comida_selec){
-                    "Jitomate" ->     imv.setImageResource(R.drawable.jitomate)
-                    "Cebolla" ->  imv.setImageResource(R.drawable.cebolla)
-                    "Chiles"  ->  imv.setImageResource(R.drawable.chiles)
-                    "Limon" -> imv.setImageResource(R.drawable.limon)
-                    "Verduras" -> imv.setImageResource(R.drawable.verduras)
-                    "Otros" -> imv.setImageResource(R.drawable.verduras)
-                }
-            }
-        }
+        //Se crea cada nivel, usando la clase Nivel
 
+        val Nivel1 :Nivel = Nivel(1,comida_n1,findViewById(R.id.tv_cn1),findViewById(R.id.iv_n1))
+        val Nivel2 :Nivel = Nivel(2,comida_n2,findViewById(R.id.tv_cn2),findViewById(R.id.iv_n2))
+        val Nivel3 :Nivel = Nivel(3,comida_n3,findViewById(R.id.tv_cn3),findViewById(R.id.iv_n3))
+        val Nivel4 :Nivel = Nivel(4,comida_n4,findViewById(R.id.tv_cn4),findViewById(R.id.iv_n4))
+        val Nivel5 :Nivel = Nivel(5,comida_n5,findViewById(R.id.tv_cn5),findViewById(R.id.iv_n5))
+        val Nivel6 :Nivel = Nivel(6,comida_n6,findViewById(R.id.tv_cn6),findViewById(R.id.iv_n6))
 
+        //Se usam las funciones config_tv para los textView y config config_imv para los ImageView
+        //Para mostrar la comida seleccionada en la siguiente interfaz
 
-        config_tv( "Nivel1",R.id.tv_cn1)
-        config_imv("Nivel1",1,R.id.iv_n1)
-
-        config_tv( "Nivel2",R.id.tv_cn2)
-        config_imv("Nivel2",2,R.id.iv_n2)
-
-        config_tv( "Nivel3",R.id.tv_cn3)
-        config_imv("Nivel3",3,R.id.iv_n3)
-
-        config_tv( "Nivel4",R.id.tv_cn4)
-        config_imv("Nivel4",4,R.id.iv_n4)
-
-        config_tv( "Nivel5",R.id.tv_cn5)
-        config_imv("Nivel5",5,R.id.iv_n5)
-
-        config_tv( "Nivel6",R.id.tv_cn6)
-        config_imv("Nivel6",6,R.id.iv_n6)
+        Nivel1.config_tv();Nivel1.config_imv()
+        Nivel2.config_tv();Nivel2.config_imv()
+        Nivel3.config_tv();Nivel3.config_imv()
+        Nivel4.config_tv();Nivel4.config_imv()
+        Nivel5.config_tv();Nivel5.config_imv()
+        Nivel6.config_tv();Nivel6.config_imv()
 
 
         //Código para que al pulsar el botón pasa a la ventana correspondiente
