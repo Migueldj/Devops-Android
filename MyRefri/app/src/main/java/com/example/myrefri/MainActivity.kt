@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         Nivel2.addAll(Arrays.asList("Paletas","Helado","Chocolate"))
         Nivel3.addAll(Arrays.asList("Quesos","Jamon","Salchicha"))
         Nivel4.addAll(Arrays.asList("Yogurt","Leche","Gelatina","Huevo"))
-        Nivel5.addAll(Arrays.asList("Comida Sobrante","Condimentos","Agua"))
+        Nivel5.addAll(Arrays.asList("Comida Sobrante","Agua"))
         Nivel6.addAll(Arrays.asList("Jitomate","Cebolla","Chiles","Limon","Verduras","Otros"))
 
         mBinding.desplegable1.adapter = Nivel1
