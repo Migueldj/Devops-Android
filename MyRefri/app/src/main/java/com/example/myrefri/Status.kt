@@ -5,21 +5,31 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.util.Log
+import android.widget.*
+import com.google.firebase.database.*
 import org.w3c.dom.Text
 import java.util.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
+
 
 
 class Status : AppCompatActivity() {
 
     private val sharedPrefFile = "kotlinsharedpreference"
+    private lateinit var database: DatabaseReference
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
+
+        //Base de datos
+        database = Firebase.database.reference
+        readData("Res")
 
         //La variable comida_n, guarda la comida seleccionada de la actividad anterior
         val comida_n1:String =intent.getStringExtra("Nivel1").toString()
@@ -38,7 +48,7 @@ class Status : AppCompatActivity() {
         val Nivel5 :Nivel = Nivel(5,comida_n5,findViewById(R.id.tv_cn5),findViewById(R.id.iv_n5))
         val Nivel6 :Nivel = Nivel(6,comida_n6,findViewById(R.id.tv_cn6),findViewById(R.id.iv_n6))
 
-        //Se usam las funciones config_tv para los textView y config config_imv para los ImageView
+        //Se usan las funciones config_tv para los textView y config config_imv para los ImageView
         //Para mostrar la comida seleccionada en la siguiente interfaz
 
         Nivel1.config_tv();Nivel1.config_imv()
@@ -57,5 +67,17 @@ class Status : AppCompatActivity() {
         }
 
 
+    }
+
+    private  fun readData(element: String) {
+        database = FirebaseDatabase.getInstance().getReference("Elements")
+        database.child(element).get().addOnSuccessListener {
+            if (it.exists()) {
+                val cantidad = it.value
+                val firstLevel = findViewById<TextView>(R.id.tv_pn1)
+                firstLevel.text = "${cantidad.toString()} kg"
+                Log.d("TAG", cantidad.toString())
+            }
+        }
     }
 }
