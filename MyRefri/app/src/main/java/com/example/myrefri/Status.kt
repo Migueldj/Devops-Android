@@ -1,17 +1,13 @@
 package com.example.myrefri
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import com.google.firebase.database.*
-import org.w3c.dom.Text
 import java.util.*
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 
@@ -41,12 +37,12 @@ class Status : AppCompatActivity() {
 
         //Se crea cada nivel, usando la clase Nivel
 
-        val Nivel1 :Nivel = Nivel(1,comida_n1,findViewById(R.id.tv_cn1),findViewById(R.id.iv_n1))
-        val Nivel2 :Nivel = Nivel(2,comida_n2,findViewById(R.id.tv_cn2),findViewById(R.id.iv_n2))
-        val Nivel3 :Nivel = Nivel(3,comida_n3,findViewById(R.id.tv_cn3),findViewById(R.id.iv_n3))
-        val Nivel4 :Nivel = Nivel(4,comida_n4,findViewById(R.id.tv_cn4),findViewById(R.id.iv_n4))
-        val Nivel5 :Nivel = Nivel(5,comida_n5,findViewById(R.id.tv_cn5),findViewById(R.id.iv_n5))
-        val Nivel6 :Nivel = Nivel(6,comida_n6,findViewById(R.id.tv_cn6),findViewById(R.id.iv_n6))
+        val Nivel1 :Nivel = Nivel(1,comida_n1,findViewById(R.id.tv_comida_n1_1),findViewById(R.id.iv_n1_1))
+        val Nivel2 :Nivel = Nivel(2,comida_n2,findViewById(R.id.tv_comida_n2_1),findViewById(R.id.iv_n2_1))
+        val Nivel3 :Nivel = Nivel(3,comida_n3,findViewById(R.id.tv_comida_n3_1),findViewById(R.id.iv_n3_1))
+        val Nivel4 :Nivel = Nivel(4,comida_n4,findViewById(R.id.tv_comida_n4_1),findViewById(R.id.iv_n4_1))
+        val Nivel5 :Nivel = Nivel(5,comida_n5,findViewById(R.id.tv_comida_n5_1),findViewById(R.id.iv_n5_1))
+        val Nivel6 :Nivel = Nivel(6,comida_n6,findViewById(R.id.tv_comida_n6_1),findViewById(R.id.iv_n6_1))
 
         //Se usan las funciones config_tv para los textView y config config_imv para los ImageView
         //Para mostrar la comida seleccionada en la siguiente interfaz
@@ -74,7 +70,7 @@ class Status : AppCompatActivity() {
         database.child(element).get().addOnSuccessListener {
             if (it.exists()) {
                 val cantidad = it.value
-                val firstLevel = findViewById<TextView>(R.id.tv_pn1)
+                val firstLevel = findViewById<TextView>(R.id.tv_kg_n1_1)
                 firstLevel.text = "${cantidad.toString()} kg"
                 Log.d("TAG", cantidad.toString())
             }
