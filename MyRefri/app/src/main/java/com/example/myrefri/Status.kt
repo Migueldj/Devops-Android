@@ -9,15 +9,12 @@ import com.google.firebase.database.*
 import java.util.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
-
+import org.w3c.dom.Text
 
 class Status : AppCompatActivity() {
 
     private val sharedPrefFile = "kotlinsharedpreference"
     private lateinit var database: DatabaseReference
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,22 +24,54 @@ class Status : AppCompatActivity() {
         database = Firebase.database.reference
         readData("Res")
 
-        //La variable comida_n, guarda la comida seleccionada de la actividad anterior
-        val comida_n1:String =intent.getStringExtra("Nivel1").toString()
-        val comida_n2:String =intent.getStringExtra("Nivel2").toString()
-        val comida_n3:String =intent.getStringExtra("Nivel3").toString()
-        val comida_n4:String =intent.getStringExtra("Nivel4").toString()
-        val comida_n5:String =intent.getStringExtra("Nivel5").toString()
-        val comida_n6:String =intent.getStringExtra("Nivel6").toString()
+        //Vectores con la información
+        var niveles :Array<String> = arrayOf("Nivel1","Nivel2","Nivel3","Nivel4","Nivel5","Nivel6")
+
+        var comidas = arrayOf(
+            arrayOf("comida_n1_1","comida_n1_2","comida_n1_3") ,
+            arrayOf("comida_n2_1","comida_n2_2","comida_n2_3") ,
+            arrayOf("comida_n3_1","comida_n3_2","comida_n3_3") ,
+            arrayOf("comida_n4_1","comida_n4_2","comida_n4_3") ,
+            arrayOf("comida_n5_1","comida_n5_2","comida_n5_3") ,
+            arrayOf("comida_n6_1","comida_n6_2","comida_n6_3") ,
+        )
+
+        var tview_n1:Array<TextView>   = arrayOf(findViewById(R.id.tv_comida_n1_1),findViewById(R.id.tv_comida_n1_2),findViewById(R.id.tv_comida_n1_3))
+        var tview_n2:Array<TextView>   = arrayOf(findViewById(R.id.tv_comida_n2_1),findViewById(R.id.tv_comida_n2_2),findViewById(R.id.tv_comida_n2_3))
+        var tview_n3:Array<TextView>   = arrayOf(findViewById(R.id.tv_comida_n3_1),findViewById(R.id.tv_comida_n3_2),findViewById(R.id.tv_comida_n3_3))
+        var tview_n4:Array<TextView>   = arrayOf(findViewById(R.id.tv_comida_n4_1),findViewById(R.id.tv_comida_n4_2),findViewById(R.id.tv_comida_n4_3))
+        var tview_n5:Array<TextView>   = arrayOf(findViewById(R.id.tv_comida_n5_1),findViewById(R.id.tv_comida_n5_2),findViewById(R.id.tv_comida_n5_3))
+        var tview_n6:Array<TextView>   = arrayOf(findViewById(R.id.tv_comida_n6_1),findViewById(R.id.tv_comida_n6_2),findViewById(R.id.tv_comida_n6_3))
+
+        var imview_n1:Array<ImageView> = arrayOf(findViewById(R.id.iv_n1_1),findViewById(R.id.iv_n1_2),findViewById(R.id.iv_n1_3))
+        var imview_n2:Array<ImageView> = arrayOf(findViewById(R.id.iv_n2_1),findViewById(R.id.iv_n2_2),findViewById(R.id.iv_n2_3))
+        var imview_n3:Array<ImageView> = arrayOf(findViewById(R.id.iv_n3_1),findViewById(R.id.iv_n3_2),findViewById(R.id.iv_n3_3))
+        var imview_n4:Array<ImageView> = arrayOf(findViewById(R.id.iv_n4_1),findViewById(R.id.iv_n4_2),findViewById(R.id.iv_n4_3))
+        var imview_n5:Array<ImageView> = arrayOf(findViewById(R.id.iv_n5_1),findViewById(R.id.iv_n5_2),findViewById(R.id.iv_n5_3))
+        var imview_n6:Array<ImageView> = arrayOf(findViewById(R.id.iv_n6_1),findViewById(R.id.iv_n6_2),findViewById(R.id.iv_n6_3))
+
+
+        for (i in (0 until comidas.size)){
+            for(j in (0 until comidas[i].size)){
+                comidas[i][j]=intent.getStringExtra(niveles[i]).toString()
+            }
+        }
+
+
 
         //Se crea cada nivel, usando la clase Nivel
+        val Nivel1 :Nivel = Nivel(1, comidas[0], tview_n1, imview_n1)
 
-        val Nivel1 :Nivel = Nivel(1,comida_n1,findViewById(R.id.tv_comida_n1_1),findViewById(R.id.iv_n1_1))
-        val Nivel2 :Nivel = Nivel(2,comida_n2,findViewById(R.id.tv_comida_n2_1),findViewById(R.id.iv_n2_1))
-        val Nivel3 :Nivel = Nivel(3,comida_n3,findViewById(R.id.tv_comida_n3_1),findViewById(R.id.iv_n3_1))
-        val Nivel4 :Nivel = Nivel(4,comida_n4,findViewById(R.id.tv_comida_n4_1),findViewById(R.id.iv_n4_1))
-        val Nivel5 :Nivel = Nivel(5,comida_n5,findViewById(R.id.tv_comida_n5_1),findViewById(R.id.iv_n5_1))
-        val Nivel6 :Nivel = Nivel(6,comida_n6,findViewById(R.id.tv_comida_n6_1),findViewById(R.id.iv_n6_1))
+        val Nivel2 :Nivel = Nivel(2, comidas[1], tview_n2, imview_n2)
+
+        val Nivel3 :Nivel = Nivel(3, comidas[2], tview_n3, imview_n3)
+
+        val Nivel4 :Nivel = Nivel(4, comidas[3], tview_n4, imview_n4)
+
+        val Nivel5 :Nivel = Nivel(5, comidas[4], tview_n5, imview_n5)
+
+        val Nivel6 :Nivel = Nivel(6, comidas[5], tview_n6, imview_n6)
+
 
         //Se usan las funciones config_tv para los textView y config config_imv para los ImageView
         //Para mostrar la comida seleccionada en la siguiente interfaz
@@ -53,6 +82,7 @@ class Status : AppCompatActivity() {
         Nivel4.config_tv();Nivel4.config_imv()
         Nivel5.config_tv();Nivel5.config_imv()
         Nivel6.config_tv();Nivel6.config_imv()
+
 
 
         //Código para que al pulsar el botón pasa a la ventana correspondiente
