@@ -25,7 +25,7 @@ class Status : AppCompatActivity() {
         readData("Res")
 
         //Arreglo con los nombres de los niveles establecidos en la actividad Main
-        var niveles_ar :Array<String> = arrayOf("Nivel1","Nivel2","Nivel3","Nivel4","Nivel5","Nivel6")
+        var niveles_ar :Array<String> = arrayOf("Nivel1_1","Nivel2_1","Nivel3_1","Nivel4_1","Nivel5_1","Nivel6_1")
 
         //Matriz para posteriormente almacenar la información de la actividad Main
         var productos_mat = arrayOf(
