@@ -83,7 +83,7 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/desplegable_1"
+                        android:id="@+id/desplegable_1_1"
                         android:layout_width="271dp"
                         android:layout_height="40dp"
                         android:gravity="center"
@@ -177,7 +177,7 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/desplegable_2"
+                        android:id="@+id/desplegable_2_1"
                         android:layout_width="271dp"
                         android:layout_height="40dp"
                         android:gravity="center"
@@ -272,7 +272,7 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/desplegable_3"
+                        android:id="@+id/desplegable_3_1"
                         android:layout_width="271dp"
                         android:layout_height="40dp"
                         android:gravity="center"
@@ -367,7 +367,7 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/desplegable_4"
+                        android:id="@+id/desplegable_4_1"
                         android:layout_width="271dp"
                         android:layout_height="40dp"
                         android:gravity="center"
@@ -462,7 +462,7 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/desplegable_5"
+                        android:id="@+id/desplegable_5_1"
                         android:layout_width="271dp"
                         android:layout_height="40dp"
                         android:gravity="center"
@@ -557,7 +557,7 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/desplegable_6"
+                        android:id="@+id/desplegable_6_1"
                         android:layout_width="271dp"
                         android:layout_height="40dp"
                         android:gravity="center"

@@ -24,10 +24,19 @@ class Status : AppCompatActivity() {
         database = Firebase.database.reference
         readData("Res")
 
-        //Arreglo con los nombres de los niveles establecidos en la actividad Main
-        var niveles_ar :Array<String> = arrayOf("Nivel1_1","Nivel2_1","Nivel3_1","Nivel4_1","Nivel5_1","Nivel6_1")
+        //---------------------------------------------------------------------
+        //Matriz con los mismos nombres de los niveles establecidos en la actividad Main
+        var niveles_nombre_mat :Array<Array<String>> = arrayOf(
+            arrayOf("Nivel1_1","Nivel1_2","Nivel1_3"),
+            arrayOf("Nivel2_1","Nivel2_2","Nivel2_3"),
+            arrayOf("Nivel3_1","Nivel3_2","Nivel3_3"),
+            arrayOf("Nivel4_1","Nivel4_2","Nivel4_3"),
+            arrayOf("Nivel5_1","Nivel5_2","Nivel5_3"),
+            arrayOf("Nivel6_1","Nivel6_2","Nivel6_3"),
+        )
 
         //Matriz para posteriormente almacenar la información de la actividad Main
+        //Usaremos esta información para crear cada Objeto Nivel
         var productos_mat = arrayOf(
             arrayOf("producto_n1_1","producto_n1_2","producto_n1_3") ,
             arrayOf("producto_n2_1","producto_n2_2","producto_n2_3") ,
@@ -37,37 +46,50 @@ class Status : AppCompatActivity() {
             arrayOf("producto_n6_1","producto_n6_2","producto_n6_3") ,
         )
 
-        //Ciclo para obtener el nombre producto de la actividad Main y asignarlo a el producto correspondiente en la matriz productos_main
+        //Obten la información del Spinner que viene ligada al nombre_nivel de la actividad Main
+        //Asigna esa información a cada elemento de la matriz productos_mat
+
+        //Variable para obtener la información del Spinner ligado al nombre de la variable
+        var nivel_nombre:String
+
         for (i in (0 until productos_mat.size)){
             for(j in (0 until productos_mat[i].size)){
-                productos_mat[i][j]=intent.getStringExtra(niveles_ar[i]).toString()
+
+                nivel_nombre=niveles_nombre_mat[i][j]
+
+                productos_mat[i][j]=intent.getStringExtra(nivel_nombre).toString()
             }
         }
 
-        //Arreglos que contienen los id para establecer el nombre del producto y su imagen
-        var txtview_ar_n1:Array<TextView>  = arrayOf(findViewById(R.id.tv_producto_n1_1),findViewById(R.id.tv_producto_n1_2),findViewById(R.id.tv_producto_n1_3))
-        var txtview_ar_n2:Array<TextView>  = arrayOf(findViewById(R.id.tv_producto_n2_1),findViewById(R.id.tv_producto_n2_2),findViewById(R.id.tv_producto_n2_3))
-        var txtview_ar_n3:Array<TextView>  = arrayOf(findViewById(R.id.tv_producto_n3_1),findViewById(R.id.tv_producto_n3_2),findViewById(R.id.tv_producto_n3_3))
-        var txtview_ar_n4:Array<TextView>  = arrayOf(findViewById(R.id.tv_producto_n4_1),findViewById(R.id.tv_producto_n4_2),findViewById(R.id.tv_producto_n4_3))
-        var txtview_ar_n5:Array<TextView>  = arrayOf(findViewById(R.id.tv_producto_n5_1),findViewById(R.id.tv_producto_n5_2),findViewById(R.id.tv_producto_n5_3))
-        var txtview_ar_n6:Array<TextView>  = arrayOf(findViewById(R.id.tv_producto_n6_1),findViewById(R.id.tv_producto_n6_2),findViewById(R.id.tv_producto_n6_3))
+        //----------------------------------------------
+        //Matrices que contienen la información de los textView e imageView para establecer el nombre del producto y su imagen
+        var txtView_mat:Array<Array<TextView>> = arrayOf(
+            arrayOf(findViewById(R.id.tv_producto_n1_1),findViewById(R.id.tv_producto_n1_2),findViewById(R.id.tv_producto_n1_3)),
+            arrayOf(findViewById(R.id.tv_producto_n2_1),findViewById(R.id.tv_producto_n2_2),findViewById(R.id.tv_producto_n2_3)),
+            arrayOf(findViewById(R.id.tv_producto_n3_1),findViewById(R.id.tv_producto_n3_2),findViewById(R.id.tv_producto_n3_3)),
+            arrayOf(findViewById(R.id.tv_producto_n4_1),findViewById(R.id.tv_producto_n4_2),findViewById(R.id.tv_producto_n4_3)),
+            arrayOf(findViewById(R.id.tv_producto_n5_1),findViewById(R.id.tv_producto_n5_2),findViewById(R.id.tv_producto_n5_3)),
+            arrayOf(findViewById(R.id.tv_producto_n6_1),findViewById(R.id.tv_producto_n6_2),findViewById(R.id.tv_producto_n6_3))
+        )
 
-        var imview_ar_n1:Array<ImageView> = arrayOf(findViewById(R.id.iv_n1_1),findViewById(R.id.iv_n1_2),findViewById(R.id.iv_n1_3))
-        var imview_ar_n2:Array<ImageView> = arrayOf(findViewById(R.id.iv_n2_1),findViewById(R.id.iv_n2_2),findViewById(R.id.iv_n2_3))
-        var imview_ar_n3:Array<ImageView> = arrayOf(findViewById(R.id.iv_n3_1),findViewById(R.id.iv_n3_2),findViewById(R.id.iv_n3_3))
-        var imview_ar_n4:Array<ImageView> = arrayOf(findViewById(R.id.iv_n4_1),findViewById(R.id.iv_n4_2),findViewById(R.id.iv_n4_3))
-        var imview_ar_n5:Array<ImageView> = arrayOf(findViewById(R.id.iv_n5_1),findViewById(R.id.iv_n5_2),findViewById(R.id.iv_n5_3))
-        var imview_ar_n6:Array<ImageView> = arrayOf(findViewById(R.id.iv_n6_1),findViewById(R.id.iv_n6_2),findViewById(R.id.iv_n6_3))
-
+        var imgView_mat:Array<Array<ImageView>> = arrayOf(
+            arrayOf(findViewById(R.id.iv_n1_1),findViewById(R.id.iv_n1_2),findViewById(R.id.iv_n1_3)),
+            arrayOf(findViewById(R.id.iv_n2_1),findViewById(R.id.iv_n2_2),findViewById(R.id.iv_n2_3)),
+            arrayOf(findViewById(R.id.iv_n3_1),findViewById(R.id.iv_n3_2),findViewById(R.id.iv_n3_3)),
+            arrayOf(findViewById(R.id.iv_n4_1),findViewById(R.id.iv_n4_2),findViewById(R.id.iv_n4_3)),
+            arrayOf(findViewById(R.id.iv_n5_1),findViewById(R.id.iv_n5_2),findViewById(R.id.iv_n5_3)),
+            arrayOf(findViewById(R.id.iv_n6_1),findViewById(R.id.iv_n6_2),findViewById(R.id.iv_n6_3))
+        )
 
         //Se crea cada nivel, usando la clase Nivel
-        //Nivel en número entero, productos del nivel correspondiente en la matriz de productos, 3 textView correspondientes al nivel, 3 imageView correspondientes al nivel
-        val Nivel1 :Nivel = Nivel(1, productos_mat[0], txtview_ar_n1, imview_ar_n1)
-        val Nivel2 :Nivel = Nivel(2, productos_mat[1], txtview_ar_n2, imview_ar_n2)
-        val Nivel3 :Nivel = Nivel(3, productos_mat[2], txtview_ar_n3, imview_ar_n3)
-        val Nivel4 :Nivel = Nivel(4, productos_mat[3], txtview_ar_n4, imview_ar_n4)
-        val Nivel5 :Nivel = Nivel(5, productos_mat[4], txtview_ar_n5, imview_ar_n5)
-        val Nivel6 :Nivel = Nivel(6, productos_mat[5], txtview_ar_n6, imview_ar_n6)
+
+        //Nivel en número entero, productos del nivel correspondiente, los 3 textView correspondientes al nivel, los 3 imageView correspondientes al nivel
+        val Nivel1 :Nivel = Nivel(1, productos_mat[0], txtView_mat[0], imgView_mat[0])
+        val Nivel2 :Nivel = Nivel(2, productos_mat[1], txtView_mat[1], imgView_mat[1])
+        val Nivel3 :Nivel = Nivel(3, productos_mat[2], txtView_mat[2], imgView_mat[2])
+        val Nivel4 :Nivel = Nivel(4, productos_mat[3], txtView_mat[3], imgView_mat[3])
+        val Nivel5 :Nivel = Nivel(5, productos_mat[4], txtView_mat[4], imgView_mat[4])
+        val Nivel6 :Nivel = Nivel(6, productos_mat[5], txtView_mat[5], imgView_mat[5])
 
         //Se usan las funciones config_tv y config_imv para mostrar el nombre e imagen de cada alimento en la interfaz Status
         Nivel1.config_tv();Nivel1.config_imv()
@@ -84,7 +106,9 @@ class Status : AppCompatActivity() {
             startActivity(intent2)
         }
     }
-    
+
+
+
     //---------------------------------------------
     //Código de backend
     private  fun readData(element: String) {

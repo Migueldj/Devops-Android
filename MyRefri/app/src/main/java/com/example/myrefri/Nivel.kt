@@ -4,17 +4,21 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class Nivel(var nivel_int:Int, var productos_ar:Array<String>, var txtview_ar:Array<TextView>, var imview_ar:Array<ImageView>) {
-    //-------------------------------------------------------------------------
-    //Función para configurar los textView de un nivel
-    //Para los 3 textView del nivel elegido, asignale a cada uno, el aliemnto correspondiente
+
+
+    //------------------Función para configurar los textView de un nivel
+
+    //Para los 3 textView del nivel elegido, asignale a cada uno, el producto correspondiente
     fun config_tv(){
         for (i in (0 until this.txtview_ar.size)){
-            //Define el textView que recibió el constructor con el tipo de alimento que recibió el constructor
-            this.txtview_ar[i].text=this.productos_ar[0]
+
+            this.txtview_ar[i].text=this.productos_ar[i]
         }
     }
-    //-------------------------------------------------------------------------
-    //Función para configurar los imageView de un nivel
+
+
+    //--------------------Función para configurar los imageView de cada nivel
+
     fun config_imv(){
         //Asigna a la variable imv_ los imageView del nivel que recibió el constructor
         val imv_1: ImageView =  this.imview_ar[0]
