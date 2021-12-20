@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import java.util.*
 import com.google.firebase.database.ktx.database
@@ -105,9 +106,14 @@ class Status : AppCompatActivity() {
             val intent2 = Intent(this,ShoppingList::class.java)
             startActivity(intent2)
         }
+
+        var falButton = findViewById<FloatingActionButton>(R.id.flBtn_1)
+        falButton.setOnClickListener{
+            val intent3 = Intent(this,MainActivity::class.java)
+            startActivity(intent3)
+        }
+
     }
-
-
 
     //---------------------------------------------
     //Código de backend

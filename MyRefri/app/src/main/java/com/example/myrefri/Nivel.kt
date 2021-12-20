@@ -8,11 +8,21 @@ class Nivel(var nivel_int:Int, var productos_ar:Array<String>, var txtview_ar:Ar
 
     //------------------Función para configurar los textView de un nivel
 
+
+
+
+
+
     //Para los 3 textView del nivel elegido, asignale a cada uno, el producto correspondiente
     fun config_tv(){
         for (i in (0 until this.txtview_ar.size)){
+            var produto:String = this.productos_ar[i]
 
-            this.txtview_ar[i].text=this.productos_ar[i]
+                if(produto=="null") {
+                this.txtview_ar[i].text="Producto sin agregar"
+                } else{
+                    this.txtview_ar[i].text=produto
+            }
         }
     }
 

@@ -617,7 +617,6 @@
                 android:layout_height="100dp"
                 android:orientation="horizontal"
                 android:gravity="center">
-
                 <Button
                     android:id="@+id/btn_aceptar_ingreso"
                     android:layout_width="wrap_content"
@@ -630,7 +629,6 @@
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
-
 
 
         </LinearLayout>
