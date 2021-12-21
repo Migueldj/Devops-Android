@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
     private val sharedPrefFile = "kotlinsharedpreference"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -156,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        
     }
+
 }
 

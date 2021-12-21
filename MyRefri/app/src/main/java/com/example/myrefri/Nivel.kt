@@ -3,14 +3,10 @@ import android.content.Intent
 import android.widget.ImageView
 import android.widget.TextView
 
-class Nivel(var nivel_int:Int, var productos_ar:Array<String>, var txtview_ar:Array<TextView>, var imview_ar:Array<ImageView>) {
+public class Nivel(var nivel_int:Int, var productos_ar:Array<String>, var txtview_ar:Array<TextView>, var imview_ar:Array<ImageView>) {
 
 
     //------------------Función para configurar los textView de un nivel
-
-
-
-
 
 
     //Para los 3 textView del nivel elegido, asignale a cada uno, el producto correspondiente

@@ -93,13 +93,12 @@ class Status : AppCompatActivity() {
         val Nivel6 :Nivel = Nivel(6, productos_mat[5], txtView_mat[5], imgView_mat[5])
 
         //Se usan las funciones config_tv y config_imv para mostrar el nombre e imagen de cada alimento en la interfaz Status
-        Nivel1.config_tv();Nivel1.config_imv()
-        Nivel2.config_tv();Nivel2.config_imv()
-        Nivel3.config_tv();Nivel3.config_imv()
-        Nivel4.config_tv();Nivel4.config_imv()
-        Nivel5.config_tv();Nivel5.config_imv()
-        Nivel6.config_tv();Nivel6.config_imv()
-
+            Nivel1.config_tv();Nivel1.config_imv()
+            Nivel2.config_tv();Nivel2.config_imv()
+            Nivel3.config_tv();Nivel3.config_imv()
+            Nivel4.config_tv();Nivel4.config_imv()
+            Nivel5.config_tv();Nivel5.config_imv()
+            Nivel6.config_tv();Nivel6.config_imv()
         //Código para pasar a la actividad ShoppingList
         val button = findViewById<Button>(R.id.btn_hacer_lista)
         button.setOnClickListener{
@@ -112,7 +111,6 @@ class Status : AppCompatActivity() {
             val intent3 = Intent(this,MainActivity::class.java)
             startActivity(intent3)
         }
-
     }
 
     //---------------------------------------------

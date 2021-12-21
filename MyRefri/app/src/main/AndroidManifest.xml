@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRefri">
         <activity
-            android:name=".StatusV2"
-            android:exported="false" />
-        <activity
-            android:name=".Status_v2"
-            android:exported="false" />
-        <activity
             android:name=".PseudoNotif"
             android:exported="true" />
         <activity
@@ -25,9 +19,6 @@
             android:name=".Status"
             android:exported="true" />
         <activity
-            android:name=".Interfaz"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
@@ -35,10 +26,11 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>
