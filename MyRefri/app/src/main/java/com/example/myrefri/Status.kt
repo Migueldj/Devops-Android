@@ -38,14 +38,8 @@ class Status : AppCompatActivity() {
 
         //Matriz para posteriormente almacenar la información de la actividad Main
         //Usaremos esta información para crear cada Objeto Nivel
-        var productos_mat :Array<Array<String?>> = arrayOf(
-            arrayOf("producto_n1_1","producto_n1_2","producto_n1_3") ,
-            arrayOf("producto_n2_1","producto_n2_2","producto_n2_3") ,
-            arrayOf("producto_n3_1","producto_n3_2","producto_n3_3") ,
-            arrayOf("producto_n4_1","producto_n4_2","producto_n4_3") ,
-            arrayOf("producto_n5_1","producto_n5_2","producto_n5_3") ,
-            arrayOf("producto_n6_1","producto_n6_2","producto_n6_3") ,
-        )
+        var productos_mat :Array<Array<String?>> = Array(6) {Array(3) {""} }
+
 
         //Obten la información del Spinner que viene ligada al nombre_nivel de la actividad Main
         //Asigna esa información a cada elemento de la matriz productos_mat
@@ -55,9 +49,7 @@ class Status : AppCompatActivity() {
 
         for (i in (0 until productos_mat.size)){
             for(j in (0 until productos_mat[i].size)){
-
                 nivel_nombre=niveles_nombre_mat[i][j]
-
                 productos_mat[i][j]=intent.getStringExtra(nivel_nombre).toString()
             }
         }
@@ -84,11 +76,12 @@ class Status : AppCompatActivity() {
 
         //-----------------------------------
         //Se trabaja con los datos
-        var sdata: SaveData= SaveData(productos_mat[0][0],this)
-        productos_mat[0][0]=sdata.configSD()
+        var save_data: SaveData= SaveData(productos_mat,this)
+        productos_mat=save_data.configSaveData()
 
+
+        //-----------------------------------
         //Se crea cada nivel, usando la clase Nivel
-
         //Nivel en número entero, productos del nivel correspondiente, los 3 textView correspondientes al nivel, los 3 imageView correspondientes al nivel
         val Nivel1 :Nivel = Nivel(1, productos_mat[0], txtView_mat[0], imgView_mat[0])
         val Nivel2 :Nivel = Nivel(2, productos_mat[1], txtView_mat[1], imgView_mat[1])
@@ -98,24 +91,31 @@ class Status : AppCompatActivity() {
         val Nivel6 :Nivel = Nivel(6, productos_mat[5], txtView_mat[5], imgView_mat[5])
 
         //Se usan las funciones config_tv y config_imv para mostrar el nombre e imagen de cada alimento en la interfaz Status
-            Nivel1.config_tv();Nivel1.config_imv()
-            Nivel2.config_tv();Nivel2.config_imv()
-            Nivel3.config_tv();Nivel3.config_imv()
-            Nivel4.config_tv();Nivel4.config_imv()
-            Nivel5.config_tv();Nivel5.config_imv()
-            Nivel6.config_tv();Nivel6.config_imv()
+        Nivel1.config_tv();Nivel1.config_imv()
+        Nivel2.config_tv();Nivel2.config_imv()
+        Nivel3.config_tv();Nivel3.config_imv()
+        Nivel4.config_tv();Nivel4.config_imv()
+        Nivel5.config_tv();Nivel5.config_imv()
+        Nivel6.config_tv();Nivel6.config_imv()
+
         //Código para pasar a la actividad ShoppingList
         val button = findViewById<Button>(R.id.btn_hacer_lista)
         button.setOnClickListener{
             val intent2 = Intent(this,ShoppingList::class.java)
-            sdata.deleteData()
             startActivity(intent2)
         }
 
-        var falButton = findViewById<FloatingActionButton>(R.id.flBtn_1)
-        falButton.setOnClickListener{
+        //Botón para configurar la lista de productos
+        var falButton_1 = findViewById<FloatingActionButton>(R.id.flBtn_1)
+        falButton_1.setOnClickListener{
             val intent3 = Intent(this,MainActivity::class.java)
             startActivity(intent3)
+        }
+
+        //Botón para reseteal la lista de productos
+        var falButton_2 = findViewById<FloatingActionButton>(R.id.flBtn_2)
+        falButton_2.setOnClickListener{
+            save_data.deleteAllData()
         }
     }
 
