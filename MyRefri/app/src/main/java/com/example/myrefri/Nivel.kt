@@ -3,7 +3,7 @@ import android.content.Intent
 import android.widget.ImageView
 import android.widget.TextView
 
-public class Nivel(var nivel_int:Int, var productos_ar:Array<String>, var txtview_ar:Array<TextView>, var imview_ar:Array<ImageView>) {
+public class Nivel(var nivel_int:Int, var productos_ar:Array<String?>, var txtview_ar:Array<TextView>, var imview_ar:Array<ImageView>) {
 
 
     //------------------Función para configurar los textView de un nivel
@@ -12,7 +12,7 @@ public class Nivel(var nivel_int:Int, var productos_ar:Array<String>, var txtvie
     //Para los 3 textView del nivel elegido, asignale a cada uno, el producto correspondiente
     fun config_tv(){
         for (i in (0 until this.txtview_ar.size)){
-            var produto:String = this.productos_ar[i]
+            var produto:String? = this.productos_ar[i]
 
                 if(produto=="null") {
                 this.txtview_ar[i].text="Producto sin agregar"

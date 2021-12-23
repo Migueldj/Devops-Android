@@ -38,7 +38,7 @@ class Status : AppCompatActivity() {
 
         //Matriz para posteriormente almacenar la información de la actividad Main
         //Usaremos esta información para crear cada Objeto Nivel
-        var productos_mat = arrayOf(
+        var productos_mat :Array<Array<String?>> = arrayOf(
             arrayOf("producto_n1_1","producto_n1_2","producto_n1_3") ,
             arrayOf("producto_n2_1","producto_n2_2","producto_n2_3") ,
             arrayOf("producto_n3_1","producto_n3_2","producto_n3_3") ,
@@ -82,6 +82,11 @@ class Status : AppCompatActivity() {
             arrayOf(findViewById(R.id.iv_n6_1),findViewById(R.id.iv_n6_2),findViewById(R.id.iv_n6_3))
         )
 
+        //-----------------------------------
+        //Se trabaja con los datos
+        var sdata: SaveData= SaveData(productos_mat[0][0],this)
+        productos_mat[0][0]=sdata.configSD()
+
         //Se crea cada nivel, usando la clase Nivel
 
         //Nivel en número entero, productos del nivel correspondiente, los 3 textView correspondientes al nivel, los 3 imageView correspondientes al nivel
@@ -103,6 +108,7 @@ class Status : AppCompatActivity() {
         val button = findViewById<Button>(R.id.btn_hacer_lista)
         button.setOnClickListener{
             val intent2 = Intent(this,ShoppingList::class.java)
+            sdata.deleteData()
             startActivity(intent2)
         }
 

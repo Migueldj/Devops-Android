@@ -36,6 +36,10 @@ class Login : AppCompatActivity() {
             val email = editTextTextEmailAddress.text.toString()
             val password = editTextTextPassword.text.toString()
 
+            val intent = Intent(this,Status::class.java)
+            startActivity(intent)
+
+            /*
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -53,6 +57,9 @@ class Login : AppCompatActivity() {
                         updateUI(null)
                     }
                 }
+
+                */
+
         }
     }
 }
