@@ -75,7 +75,7 @@ class SaveData(var productos_mat :Array<Array<String?>>,var context: Context) {
                 editor.apply()
             }
         }
-        showAlert("Hemos borrado los valores\nPor favor reinicie la aplicación")
+        showAlert("Se han borrado los valores\nPor favor reinicie la aplicación")
     }
 
     fun showAlert(message:String?){

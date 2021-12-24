@@ -75,10 +75,10 @@ class Status : AppCompatActivity() {
         )
 
         //-----------------------------------
-        //Se trabaja con los datos
+        //Código para guardar los datos, usa los datos actuales para crear un objeto de la clase SaveData
+        //Dependiendo de si había datos guardados o no, asignale valores nuevamente a la matriz productos_mat
         var save_data: SaveData= SaveData(productos_mat,this)
         productos_mat=save_data.configSaveData()
-
 
         //-----------------------------------
         //Se crea cada nivel, usando la clase Nivel

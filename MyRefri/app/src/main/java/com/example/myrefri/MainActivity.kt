@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
         //Arreglos con el tipo de producto por nivel
-        var productos_n1 = Arrays.asList("Res","Puerco","Pollo","Pescado")
-        var productos_n2 = Arrays.asList("Paletas","Helado","Chocolate")
-        var productos_n3 = Arrays.asList("Quesos","Jamon","Salchicha")
-        var productos_n4 = Arrays.asList("Yogurt","Leche","Gelatina","Huevo")
-        var productos_n5 = Arrays.asList("Comida Sobrante","Agua")
-        var productos_n6 = Arrays.asList("Jitomate","Cebolla","Chiles","Limon","Verduras","Otros")
+        var productos_n1 = Arrays.asList("Res","Puerco","Pollo","Pescado","Otros","Vacío")
+        var productos_n2 = Arrays.asList("Paletas","Helado","Hielo","Otros","Vacío")
+        var productos_n3 = Arrays.asList("Queso","Jamón","Salchicha","Otros","Vacío")
+        var productos_n4 = Arrays.asList("Yogurt","Leche","Gelatina","Huevo","Otros","Vacío")
+        var productos_n5 = Arrays.asList("Comida Sobrante","Agua","Jugo","Otros","Vacío")
+        var productos_n6 = Arrays.asList("Jitomate","Cebolla","Chiles","Limón","Verduras","Otros","Vacío")
 
         // Código para configurar los Spinner
         val Nivel1_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)

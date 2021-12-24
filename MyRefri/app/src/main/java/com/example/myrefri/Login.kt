@@ -36,9 +36,11 @@ class Login : AppCompatActivity() {
             val email = editTextTextEmailAddress.text.toString()
             val password = editTextTextPassword.text.toString()
 
+            //Eliminar estas líneas de código
             val intent = Intent(this,Status::class.java)
             startActivity(intent)
 
+            //Descomentar estas líneas de código
             /*
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
