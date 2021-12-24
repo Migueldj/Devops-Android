@@ -106,15 +106,15 @@ class Status : AppCompatActivity() {
         }
 
         //Botón para configurar la lista de productos
-        var falButton_1 = findViewById<FloatingActionButton>(R.id.flBtn_1)
-        falButton_1.setOnClickListener{
+        val button_config_productos = findViewById<Button>(R.id.btn_config_productos)
+        button_config_productos.setOnClickListener{
             val intent3 = Intent(this,MainActivity::class.java)
             startActivity(intent3)
         }
 
         //Botón para reseteal la lista de productos
-        var falButton_2 = findViewById<FloatingActionButton>(R.id.flBtn_2)
-        falButton_2.setOnClickListener{
+        val button_reset_productos = findViewById<Button>(R.id.btn_reset_productos)
+        button_reset_productos.setOnClickListener{
             save_data.deleteAllData()
         }
     }
