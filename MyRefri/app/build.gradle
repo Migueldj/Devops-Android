@@ -53,4 +53,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.itextpdf:itextg:5.5.10'
 }

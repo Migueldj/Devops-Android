@@ -46,7 +46,6 @@ class Status : AppCompatActivity() {
 
         //Variable para obtener la información del Spinner ligado al nombre de la variable
         var nivel_nombre:String
-
         for (i in (0 until productos_mat.size)){
             for(j in (0 until productos_mat[i].size)){
                 nivel_nombre=niveles_nombre_mat[i][j]
@@ -98,21 +97,29 @@ class Status : AppCompatActivity() {
         Nivel5.config_tv();Nivel5.config_imv()
         Nivel6.config_tv();Nivel6.config_imv()
 
-        //Código para pasar a la actividad ShoppingList
+
+        //Código para pasar a la actividad ShoppingList y mandar la información de los productos actuales
         val button = findViewById<Button>(R.id.btn_hacer_lista)
         button.setOnClickListener{
-            val intent2 = Intent(this,ShoppingList::class.java)
-            startActivity(intent2)
+            val intent_ShoppingList = Intent(this,ShoppingList::class.java)
+            var nivel_nombre:String
+            for (i in (0 until niveles_nombre_mat.size)){
+                for(j in (0 until niveles_nombre_mat[i].size)){
+                    nivel_nombre=niveles_nombre_mat[i][j]
+                    intent_ShoppingList.putExtra(nivel_nombre,productos_mat[i][j])
+                }
+            }
+            startActivity(intent_ShoppingList)
         }
 
-        //Botón para configurar la lista de productos
+        //Botón para modificar la lista de productos
         val button_config_productos = findViewById<Button>(R.id.btn_config_productos)
         button_config_productos.setOnClickListener{
-            val intent3 = Intent(this,MainActivity::class.java)
-            startActivity(intent3)
+            val intent_MainActivity = Intent(this,MainActivity::class.java)
+            startActivity(intent_MainActivity)
         }
 
-        //Botón para reseteal la lista de productos
+        //Botón para resetear la lista de productos
         val button_reset_productos = findViewById<Button>(R.id.btn_reset_productos)
         button_reset_productos.setOnClickListener{
             save_data.deleteAllData()

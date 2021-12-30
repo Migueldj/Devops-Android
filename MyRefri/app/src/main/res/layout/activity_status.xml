@@ -1295,7 +1295,7 @@
                     android:layout_height="58dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
-                    android:layout_marginLeft="0dp"
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
 
                     <Button
@@ -1312,7 +1312,7 @@
                     android:layout_height="58dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
-                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="vertical">
 
                     <Button
@@ -1320,7 +1320,7 @@
                         android:layout_width="170dp"
                         android:layout_height="58dp"
                         android:backgroundTint="@color/teal_700"
-                        android:text="Agregar Productos" />
+                        android:text="Modificar Productos" />
 
                 </LinearLayout>
 

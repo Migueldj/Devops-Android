@@ -132,8 +132,7 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
-            val intent = Intent(this,Status::class.java)
-
+            val intent_Status        = Intent(this,Status::class.java)
             //Variable para llevar la información del spinner correspondiente a la actividad Status
             //es una variable contenida en niveles_nombre_mat
             var nivel_nombre:String
@@ -149,11 +148,13 @@ class MainActivity : AppCompatActivity() {
                     nivel_spinner=niveles_spinner_mat[i][j].selectedItem.toString()
                     nivel_nombre=niveles_nombre_mat[i][j]
 
-                    //Liga la información de nivel_nombre con nivel_spinner y mándalo a la siguiente actividad
-                    intent.putExtra(nivel_nombre,nivel_spinner)
+                    //Liga la información de nivel_nombre con nivel_spinner y mándalo a las siguientes actividades
+                    intent_Status.putExtra(nivel_nombre,nivel_spinner)
+
                 }
             }
-            startActivity(intent)
+
+            startActivity(intent_Status)
         }
     }
 
