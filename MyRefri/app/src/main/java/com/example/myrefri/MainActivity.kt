@@ -41,76 +41,57 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        //Arreglos con el tipo de producto por nivel
-        var productos_n1 = Arrays.asList("Res","Puerco","Pollo","Pescado","Otros","Vacío")
-        var productos_n2 = Arrays.asList("Paletas","Helado","Hielo","Otros","Vacío")
-        var productos_n3 = Arrays.asList("Queso","Jamón","Salchicha","Otros","Vacío")
-        var productos_n4 = Arrays.asList("Yogurt","Leche","Gelatina","Huevo","Otros","Vacío")
-        var productos_n5 = Arrays.asList("Comida Sobrante","Agua","Jugo","Otros","Vacío")
-        var productos_n6 = Arrays.asList("Jitomate","Cebolla","Chiles","Limón","Verduras","Otros","Vacío")
+        //------------------------------------------------------------------------------------------
+        //Matriz con el tipo de producto por nivel
+        var products_by_level_mat:Array<Array<MutableList<String>>> = arrayOf(
+            arrayOf(Arrays.asList("Res","Puerco","Pollo","Pescado","Otros","Vacío")),
+            arrayOf(Arrays.asList("Paletas","Helado","Hielo","Otros","Vacío")),
+            arrayOf(Arrays.asList("Queso","Jamón","Salchicha","Otros","Vacío")),
+            arrayOf(Arrays.asList("Yogurt","Leche","Gelatina","Huevo","Otros","Vacío")),
+            arrayOf(Arrays.asList("Comida Sobrante","Agua","Jugo","Otros","Vacío")),
+            arrayOf(Arrays.asList("Jitomate","Cebolla","Chiles","Limón","Verduras","Otros","Vacío")),
+        )
 
-        // Código para configurar los Spinner
-        val Nivel1_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel1_2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel1_3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
+        //Matriz de 6x3 (6 niveles y 3 subniveles), para configurar el ArrayAdapter de los spinners
+        var levels_aadapter_mat:Array<Array<ArrayAdapter<String>>> = Array(6) {Array(3) {ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)} }
 
-        val Nivel2_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel2_2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel2_3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
 
-        val Nivel3_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel3_2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel3_3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-
-        val Nivel4_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel4_2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel4_3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-
-        val Nivel5_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel5_2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel5_3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-
-        val Nivel6_1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel6_2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-        val Nivel6_3 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
-
-        //Se le asigna a los 3 productos de cada nivel, el mismo tipo de productos, correspondientes a cada nivel
-        Nivel1_1.addAll(productos_n1);Nivel1_2.addAll(productos_n1);Nivel1_3.addAll(productos_n1)
-        Nivel2_1.addAll(productos_n2);Nivel2_2.addAll(productos_n2);Nivel2_3.addAll(productos_n2)
-        Nivel3_1.addAll(productos_n3);Nivel3_2.addAll(productos_n3);Nivel3_3.addAll(productos_n3)
-        Nivel4_1.addAll(productos_n4);Nivel4_2.addAll(productos_n4);Nivel4_3.addAll(productos_n4)
-        Nivel5_1.addAll(productos_n5);Nivel5_2.addAll(productos_n5);Nivel5_3.addAll(productos_n5)
-        Nivel6_1.addAll(productos_n6);Nivel6_2.addAll(productos_n6);Nivel6_3.addAll(productos_n6)
+        //Para cada ArrayApater de la matriz levels_aadapter_mat, agrega los productos del nivel correspondiente, de la matriz products_by_level_mat
+        for (i in (0 until levels_aadapter_mat.size)){
+            for(j in (0 until levels_aadapter_mat[i].size)){
+                levels_aadapter_mat[i][j].addAll(products_by_level_mat[i][0])
+            }
+        }
 
         //Se configuran los desplegables de cada nivel
         //(Por alguna razón "desplegable no acepta guión bajo, entonces desplegable11 "equivale a 1_1")
-        mBinding.desplegable11.adapter = Nivel1_1
-        mBinding.desplegable12.adapter = Nivel1_2
-        mBinding.desplegable13.adapter = Nivel1_3
+        mBinding.desplegable11.adapter = levels_aadapter_mat[0][0]
+        mBinding.desplegable12.adapter = levels_aadapter_mat[0][1]
+        mBinding.desplegable13.adapter = levels_aadapter_mat[0][2]
 
-        mBinding.desplegable21.adapter = Nivel2_1
-        mBinding.desplegable22.adapter = Nivel2_2
-        mBinding.desplegable23.adapter = Nivel2_3
+        mBinding.desplegable21.adapter = levels_aadapter_mat[1][0]
+        mBinding.desplegable22.adapter = levels_aadapter_mat[1][1]
+        mBinding.desplegable23.adapter = levels_aadapter_mat[1][2]
 
-        mBinding.desplegable31.adapter = Nivel3_1
-        mBinding.desplegable32.adapter = Nivel3_2
-        mBinding.desplegable33.adapter = Nivel3_3
+        mBinding.desplegable31.adapter = levels_aadapter_mat[2][0]
+        mBinding.desplegable32.adapter = levels_aadapter_mat[2][1]
+        mBinding.desplegable33.adapter = levels_aadapter_mat[2][2]
 
-        mBinding.desplegable41.adapter = Nivel4_1
-        mBinding.desplegable42.adapter = Nivel4_2
-        mBinding.desplegable43.adapter = Nivel4_3
+        mBinding.desplegable41.adapter = levels_aadapter_mat[3][0]
+        mBinding.desplegable42.adapter = levels_aadapter_mat[3][1]
+        mBinding.desplegable43.adapter = levels_aadapter_mat[3][2]
 
-        mBinding.desplegable51.adapter = Nivel5_1
-        mBinding.desplegable52.adapter = Nivel5_2
-        mBinding.desplegable53.adapter = Nivel5_3
+        mBinding.desplegable51.adapter = levels_aadapter_mat[4][0]
+        mBinding.desplegable52.adapter = levels_aadapter_mat[4][1]
+        mBinding.desplegable53.adapter = levels_aadapter_mat[4][2]
 
-        mBinding.desplegable61.adapter = Nivel6_1
-        mBinding.desplegable62.adapter = Nivel6_2
-        mBinding.desplegable63.adapter = Nivel6_3
+        mBinding.desplegable61.adapter = levels_aadapter_mat[5][0]
+        mBinding.desplegable62.adapter = levels_aadapter_mat[5][1]
+        mBinding.desplegable63.adapter = levels_aadapter_mat[5][2]
 
 
         //Matriz que contienen la información del Spinner de los 3 productos de cada nivel, con ellos obtendremos la selección del usuario
-        var niveles_spinner_mat:Array<Array<Spinner>> = arrayOf(
+        var levels_info_spinner_mat:Array<Array<Spinner>> = arrayOf(
             arrayOf(findViewById<Spinner>(R.id.desplegable_1_1),findViewById<Spinner>(R.id.desplegable_1_2),findViewById<Spinner>(R.id.desplegable_1_3)),
             arrayOf(findViewById<Spinner>(R.id.desplegable_2_1),findViewById<Spinner>(R.id.desplegable_2_2),findViewById<Spinner>(R.id.desplegable_2_3)),
             arrayOf(findViewById<Spinner>(R.id.desplegable_3_1),findViewById<Spinner>(R.id.desplegable_3_2),findViewById<Spinner>(R.id.desplegable_3_3)),
@@ -119,8 +100,8 @@ class MainActivity : AppCompatActivity() {
             arrayOf(findViewById<Spinner>(R.id.desplegable_6_1),findViewById<Spinner>(R.id.desplegable_6_2),findViewById<Spinner>(R.id.desplegable_6_3)),
         )
 
-        //Matriz con los nombres para cada nivel y "subnivel", servirán para enviar la información a la actividad Status
-        var niveles_nombre_mat :Array<Array<String>> = arrayOf(
+        //Matriz con los nombres para cada nivel y "subnivel", serán la clave/llave para enviar información a la actividad Status
+        var levels_keyname_mat :Array<Array<String>> = arrayOf(
             arrayOf("Nivel1_1","Nivel1_2","Nivel1_3"),
             arrayOf("Nivel2_1","Nivel2_2","Nivel2_3"),
             arrayOf("Nivel3_1","Nivel3_2","Nivel3_3"),
@@ -129,32 +110,28 @@ class MainActivity : AppCompatActivity() {
             arrayOf("Nivel6_1","Nivel6_2","Nivel6_3"),
         )
 
-
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
-            val intent_Status        = Intent(this,Status::class.java)
-            //Variable para llevar la información del spinner correspondiente a la actividad Status
-            //es una variable contenida en niveles_nombre_mat
-            var nivel_nombre:String
+            val intent_StatusActivity = Intent(this,Status::class.java)
 
-            //Variable para obtener la información del spinner correspondiente
-            //es una variable contenida en niveles_spinner_mat
-            var nivel_spinner:String
+            //Es la clave para llevar la información del spinner correspondiente a la actividad Status, obtendrá su valor de levels_keyname_mat
+            var level_keyname:String
 
+            //Variable para obtener la información del spinner correspondiente obtendrá su valor delevels_info_spinner_mat
+            var level_info_spinner:String
 
-            for (i in (0 until niveles_nombre_mat.size)){
-                for(j in (0 until niveles_nombre_mat[i].size)){
+            /*Para cada elemento de levels_info_spinner_mat (producto seleccionado por el usuario) conviertelo en String, envíalo junto con una clave
+            a la actividad Status*/
+            for (i in (0 until levels_keyname_mat.size)){
+                for(j in (0 until levels_keyname_mat[i].size)){
+                    level_info_spinner =levels_info_spinner_mat[i][j].selectedItem.toString()
+                    level_keyname      =levels_keyname_mat[i][j]
 
-                    nivel_spinner=niveles_spinner_mat[i][j].selectedItem.toString()
-                    nivel_nombre=niveles_nombre_mat[i][j]
-
-                    //Liga la información de nivel_nombre con nivel_spinner y mándalo a las siguientes actividades
-                    intent_Status.putExtra(nivel_nombre,nivel_spinner)
-
+                    intent_StatusActivity.putExtra(level_keyname,level_info_spinner)
                 }
             }
-
-            startActivity(intent_Status)
+            //Inicia la actividad Status
+            startActivity(intent_StatusActivity)
         }
     }
 

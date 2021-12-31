@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
-import java.util.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 class Status : AppCompatActivity() {
 
@@ -26,8 +23,8 @@ class Status : AppCompatActivity() {
         readData("Res")
 
         //---------------------------------------------------------------------
-        //Matriz con los mismos nombres de los niveles establecidos en la actividad Main
-        var niveles_nombre_mat :Array<Array<String>> = arrayOf(
+        //Matriz con los nombres para cada nivel y "subnivel", serán la clave/llave para recuperar información de la actividad Main
+        var levels_keyname_mat :Array<Array<String>> = arrayOf(
             arrayOf("Nivel1_1","Nivel1_2","Nivel1_3"),
             arrayOf("Nivel2_1","Nivel2_2","Nivel2_3"),
             arrayOf("Nivel3_1","Nivel3_2","Nivel3_3"),
@@ -36,24 +33,20 @@ class Status : AppCompatActivity() {
             arrayOf("Nivel6_1","Nivel6_2","Nivel6_3"),
         )
 
-        //Matriz para posteriormente almacenar la información de la actividad Main
-        //Usaremos esta información para crear cada Objeto Nivel
-        var productos_mat :Array<Array<String?>> = Array(6) {Array(3) {""} }
+        //Matriz para guardar la información que viene de la actividad Main
+        var selected_products_mat :Array<Array<String?>> = Array(6) {Array(3) {""} }
 
 
-        //Obten la información del Spinner que viene ligada al nombre_nivel de la actividad Main
-        //Asigna esa información a cada elemento de la matriz productos_mat
+        //Se usa la clave para recuperar la información de la actividad Main y se guarda en la matriz selected_products_mat
+        var product_key:String
 
-        //Variable para obtener la información del Spinner ligado al nombre de la variable
-        var nivel_nombre:String
-        for (i in (0 until productos_mat.size)){
-            for(j in (0 until productos_mat[i].size)){
-                nivel_nombre=niveles_nombre_mat[i][j]
-                productos_mat[i][j]=intent.getStringExtra(nivel_nombre).toString()
+        for (i in (0 until selected_products_mat.size)){
+            for(j in (0 until selected_products_mat[i].size)){
+                product_key = levels_keyname_mat[i][j]
+                selected_products_mat[i][j] = intent.getStringExtra(product_key).toString()
             }
         }
 
-        //----------------------------------------------
         //Matrices que contienen la información de los textView e imageView para establecer el nombre del producto y su imagen
         var txtView_mat:Array<Array<TextView>> = arrayOf(
             arrayOf(findViewById(R.id.tv_producto_n1_1),findViewById(R.id.tv_producto_n1_2),findViewById(R.id.tv_producto_n1_3)),
@@ -73,56 +66,58 @@ class Status : AppCompatActivity() {
             arrayOf(findViewById(R.id.iv_n6_1),findViewById(R.id.iv_n6_2),findViewById(R.id.iv_n6_3))
         )
 
-        //-----------------------------------
-        //Código para guardar los datos, usa los datos actuales para crear un objeto de la clase SaveData
-        //Dependiendo de si había datos guardados o no, asignale valores nuevamente a la matriz productos_mat
-        var save_data: SaveData= SaveData(productos_mat,this)
-        productos_mat=save_data.configSaveData()
 
-        //-----------------------------------
-        //Se crea cada nivel, usando la clase Nivel
-        //Nivel en número entero, productos del nivel correspondiente, los 3 textView correspondientes al nivel, los 3 imageView correspondientes al nivel
-        val Nivel1 :Nivel = Nivel(1, productos_mat[0], txtView_mat[0], imgView_mat[0])
-        val Nivel2 :Nivel = Nivel(2, productos_mat[1], txtView_mat[1], imgView_mat[1])
-        val Nivel3 :Nivel = Nivel(3, productos_mat[2], txtView_mat[2], imgView_mat[2])
-        val Nivel4 :Nivel = Nivel(4, productos_mat[3], txtView_mat[3], imgView_mat[3])
-        val Nivel5 :Nivel = Nivel(5, productos_mat[4], txtView_mat[4], imgView_mat[4])
-        val Nivel6 :Nivel = Nivel(6, productos_mat[5], txtView_mat[5], imgView_mat[5])
+        /*Se crea un objeto de la clase SaveData, se le asigna la información actual y dependiendo de si había o no datos previos
+        reasigna nuevamente la matriz selected_products_mat, para posteriormente crear los niveles con esa información */
+        var saveData: SaveData = SaveData(selected_products_mat,this)
+        selected_products_mat   = saveData.configSaveData()
+
+
+        //Se crean 6 objetos de la clase Nivel, para configurar cada nivel
+        //El número de cada nivel en número entero, productos del nivel correspondiente, los 3 textView correspondientes al nivel, los 3 imageView correspondientes al nivel
+        val level1 :LevelClass = LevelClass(1, selected_products_mat[0], txtView_mat[0], imgView_mat[0])
+        val level2 :LevelClass = LevelClass(2, selected_products_mat[1], txtView_mat[1], imgView_mat[1])
+        val level3 :LevelClass = LevelClass(3, selected_products_mat[2], txtView_mat[2], imgView_mat[2])
+        val level4 :LevelClass = LevelClass(4, selected_products_mat[3], txtView_mat[3], imgView_mat[3])
+        val level5 :LevelClass = LevelClass(5, selected_products_mat[4], txtView_mat[4], imgView_mat[4])
+        val level6 :LevelClass = LevelClass(6, selected_products_mat[5], txtView_mat[5], imgView_mat[5])
+
 
         //Se usan las funciones config_tv y config_imv para mostrar el nombre e imagen de cada alimento en la interfaz Status
-        Nivel1.config_tv();Nivel1.config_imv()
-        Nivel2.config_tv();Nivel2.config_imv()
-        Nivel3.config_tv();Nivel3.config_imv()
-        Nivel4.config_tv();Nivel4.config_imv()
-        Nivel5.config_tv();Nivel5.config_imv()
-        Nivel6.config_tv();Nivel6.config_imv()
+        level1.setTextViews(); level1.setImagesViews()
+        level2.setTextViews(); level2.setImagesViews()
+        level3.setTextViews(); level3.setImagesViews()
+        level4.setTextViews(); level4.setImagesViews()
+        level5.setTextViews(); level5.setImagesViews()
+        level6.setTextViews(); level6.setImagesViews()
 
 
         //Código para pasar a la actividad ShoppingList y mandar la información de los productos actuales
-        val button = findViewById<Button>(R.id.btn_hacer_lista)
-        button.setOnClickListener{
-            val intent_ShoppingList = Intent(this,ShoppingList::class.java)
-            var nivel_nombre:String
-            for (i in (0 until niveles_nombre_mat.size)){
-                for(j in (0 until niveles_nombre_mat[i].size)){
-                    nivel_nombre=niveles_nombre_mat[i][j]
-                    intent_ShoppingList.putExtra(nivel_nombre,productos_mat[i][j])
+        val button_shopping_list_Activity = findViewById<Button>(R.id.btn_hacer_lista)
+        button_shopping_list_Activity.setOnClickListener{
+            val intent_ShoppingListActivity = Intent(this,ShoppingList::class.java)
+            var product_key:String
+
+            for (i in (0 until levels_keyname_mat.size)){
+                for(j in (0 until levels_keyname_mat[i].size)){
+                    product_key = levels_keyname_mat[i][j]
+                    intent_ShoppingListActivity.putExtra(product_key,selected_products_mat[i][j])
                 }
             }
-            startActivity(intent_ShoppingList)
+            startActivity(intent_ShoppingListActivity)
         }
 
-        //Botón para modificar la lista de productos
-        val button_config_productos = findViewById<Button>(R.id.btn_config_productos)
-        button_config_productos.setOnClickListener{
+        //Botón para modificar la lista de productos, ir a la actividad Main
+        val button_main_Activity = findViewById<Button>(R.id.btn_config_productos)
+        button_main_Activity.setOnClickListener{
             val intent_MainActivity = Intent(this,MainActivity::class.java)
             startActivity(intent_MainActivity)
         }
 
         //Botón para resetear la lista de productos
-        val button_reset_productos = findViewById<Button>(R.id.btn_reset_productos)
-        button_reset_productos.setOnClickListener{
-            save_data.deleteAllData()
+        val button_reset_products = findViewById<Button>(R.id.btn_reset_productos)
+        button_reset_products.setOnClickListener{
+            saveData.deleteAllData()
         }
     }
 
