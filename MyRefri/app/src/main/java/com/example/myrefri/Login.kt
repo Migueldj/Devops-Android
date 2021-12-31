@@ -36,7 +36,7 @@ class Login : AppCompatActivity() {
             val email = editTextTextEmailAddress.text.toString()
             val password = editTextTextPassword.text.toString()
 
-            //Eliminar estas líneas de código
+            //Eliminar estas 2 líneas de código
             val intent = Intent(this,Status::class.java)
             startActivity(intent)
 

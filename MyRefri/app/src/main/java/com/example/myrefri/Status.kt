@@ -69,8 +69,8 @@ class Status : AppCompatActivity() {
 
         /*Se crea un objeto de la clase SaveData, se le asigna la información actual y dependiendo de si había o no datos previos
         reasigna nuevamente la matriz selected_products_mat, para posteriormente crear los niveles con esa información */
-        var saveData: SaveData = SaveData(selected_products_mat,this)
-        selected_products_mat   = saveData.configSaveData()
+        var saveData: SaveDataClass = SaveDataClass(selected_products_mat,this)
+        selected_products_mat   = saveData.setSaveData()
 
 
         //Se crean 6 objetos de la clase Nivel, para configurar cada nivel
