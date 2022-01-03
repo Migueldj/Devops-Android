@@ -31,6 +31,16 @@ class ShoppingList : AppCompatActivity() {
         arrayOf("Jitomate","Cebolla","Chiles","Limón","Verduras","Otros","Vacío"),
     )
 
+    //Matriz que simula la cantidad en kg que hay de cada alimento
+    var weight_mat :Array<Array<Int>> = arrayOf(
+        arrayOf(2,4,2),
+        arrayOf(2,4,2),
+        arrayOf(2,4,2),
+        arrayOf(2,4,2),
+        arrayOf(2,4,2),
+        arrayOf(2,4,2),
+    )
+
     //Matriz que contendrá los id de los checkbox
     lateinit var checkbox_id_mat:Array<Array<View?>>
 
@@ -59,20 +69,24 @@ class ShoppingList : AppCompatActivity() {
         }
 
     //--------------------------------------------------------
-     checkbox_id_mat= arrayOf(
+        //Matriz con la información para localizar los checkbox de la actividad Shopping List
+        checkbox_id_mat= arrayOf(
         arrayOf(findViewById<CheckBox>(R.id.cBox_n1_1),findViewById<CheckBox>(R.id.cBox_n1_2),findViewById<CheckBox>(R.id.cBox_n1_3),findViewById<CheckBox>(R.id.cBox_n1_4),findViewById<CheckBox>(R.id.cBox_n1_5)),
         arrayOf(findViewById<CheckBox>(R.id.cBox_n2_1),findViewById<CheckBox>(R.id.cBox_n2_2),findViewById<CheckBox>(R.id.cBox_n2_3),findViewById<CheckBox>(R.id.cBox_n2_4)),
         arrayOf(findViewById<CheckBox>(R.id.cBox_n3_1),findViewById<CheckBox>(R.id.cBox_n3_2),findViewById<CheckBox>(R.id.cBox_n3_3),findViewById<CheckBox>(R.id.cBox_n3_4)),
         arrayOf(findViewById<CheckBox>(R.id.cBox_n4_1),findViewById<CheckBox>(R.id.cBox_n4_2),findViewById<CheckBox>(R.id.cBox_n4_3),findViewById<CheckBox>(R.id.cBox_n4_4),findViewById<CheckBox>(R.id.cBox_n4_5)),
         arrayOf(findViewById<CheckBox>(R.id.cBox_n5_1),findViewById<CheckBox>(R.id.cBox_n5_2),findViewById<CheckBox>(R.id.cBox_n5_3)),
         arrayOf(findViewById<CheckBox>(R.id.cBox_n6_1),findViewById<CheckBox>(R.id.cBox_n6_2),findViewById<CheckBox>(R.id.cBox_n6_3),findViewById<CheckBox>(R.id.cBox_n6_4),findViewById<CheckBox>(R.id.cBox_n6_5),findViewById<CheckBox>(R.id.cBox_n6_6)),
-    )
+        )
+
+        /*Se utiliza el método preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos
+        por nivel que se hayan seleccionado desde la actividad Main, mismos que aparecen en la actividad Status*/
+        pdfList.preSelectedCheckBox(all_products_mat,checkbox_id_mat,selected_products_mat,weight_mat)
 
         //---------------------------------------------------------------------
         /*La función configPDF gestiona los permisos para la escritura en la memoria y poder generar el PDF,
         también hace uso de la funcion savePDFWithCBox*/
         fun configPDF(){
-
             if(Build.VERSION.SDK_INT>Build.VERSION_CODES.M){
                 if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_DENIED) {
                     val permissions= arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
