@@ -14,7 +14,6 @@ public class LevelClass(var int_level:Int, var selected_products_arr:Array<Strin
         for (i in (0 until this.txtview_arr.size)){
 
             var selected_product:String? = this.selected_products_arr[i]
-
                 if(selected_product=="null") {
                 this.txtview_arr[i].text="Producto sin agregar"
                 } else{

@@ -91,9 +91,12 @@ class Status : AppCompatActivity() {
         level5.setTextViews(); level5.setImagesViews()
         level6.setTextViews(); level6.setImagesViews()
 
+        val button_shopping_list_Activity = findViewById<Button>(R.id.btn_hacer_lista)
+
+        //Código para bloquear el botón si aún no hay productos para generar la lista
+        button_shopping_list_Activity.isEnabled = !(selected_products_mat[0][0]=="null"||selected_products_mat[0][0]=="No hay valores aún")
 
         //Código para pasar a la actividad ShoppingList y mandar la información de los productos actuales
-        val button_shopping_list_Activity = findViewById<Button>(R.id.btn_hacer_lista)
         button_shopping_list_Activity.setOnClickListener{
             val intent_ShoppingListActivity = Intent(this,ShoppingList::class.java)
             var product_key:String
