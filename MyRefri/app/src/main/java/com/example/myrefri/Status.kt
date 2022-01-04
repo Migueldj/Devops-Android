@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.*
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class Status : AppCompatActivity() {
@@ -128,6 +129,23 @@ class Status : AppCompatActivity() {
     //Código de backend
     private  fun readData(element: String) {
         database = FirebaseDatabase.getInstance().getReference("Elements")
+        val valueListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val value = dataSnapshot.getValue<Long>()
+                val firstLevel = findViewById<TextView>(R.id.tv_kg_n1_1)
+                firstLevel.text = "${value.toString()} kg"
+                Log.d("TAG", value.toString())
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("TAG", "loadValue:onCancelled", databaseError.toException())
+            }
+        }
+        database.child(element).addValueEventListener(valueListener)
+    }
+}
+/*    private  fun readData(element: String) {
+        database = FirebaseDatabase.getInstance().getReference("Elements")
         database.child(element).get().addOnSuccessListener {
             if (it.exists()) {
                 val cantidad = it.value
@@ -137,4 +155,4 @@ class Status : AppCompatActivity() {
             }
         }
     }
-}
+}*/
