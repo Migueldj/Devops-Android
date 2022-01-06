@@ -110,6 +110,24 @@ class MainActivity : AppCompatActivity() {
             arrayOf("Nivel6_1","Nivel6_2","Nivel6_3"),
         )
 
+
+        //Array con la información de los id donde el usuario puede ingresar un producto manualmente
+        var levels_info_editTex_arr :Array<EditText> = arrayOf(
+            findViewById<EditText>(R.id.edit_text_n1),
+            findViewById<EditText>(R.id.edit_text_n2),
+            findViewById<EditText>(R.id.edit_text_n3),
+            findViewById<EditText>(R.id.edit_text_n4),
+            findViewById<EditText>(R.id.edit_text_n5),
+            findViewById<EditText>(R.id.edit_text_n6)
+        )
+
+        //Array con los nombres para los productos ingresados manualmente, serán la clave/llave para enviar información a la actividad Status
+        var levels_keyname_editText_arr :Array<String> = arrayOf(
+            "Nivel1_4","Nivel2_4","Nivel3_4","Nivel4_4","Nivel5_4","Nivel6_4"
+        )
+
+
+
         val button = findViewById<Button>(R.id.btn_aceptar_ingreso)
         button.setOnClickListener{
             val intent_StatusActivity = Intent(this,Status::class.java)
@@ -130,6 +148,17 @@ class MainActivity : AppCompatActivity() {
                     intent_StatusActivity.putExtra(level_keyname,level_info_spinner)
                 }
             }
+
+            /*Este código funciona de la misma manera que el anterior, envía la información de los productos ingresados manualmente*/
+            var level_keyname_editTex:String
+            var level_info_editText:String
+            for (i in (0 until levels_info_editTex_arr.size)){
+                level_info_editText   = levels_info_editTex_arr[i].text.toString()
+                level_keyname_editTex = levels_keyname_editText_arr[i]
+                intent_StatusActivity.putExtra(level_keyname_editTex,level_info_editText)
+
+            }
+
             //Inicia la actividad Status
             startActivity(intent_StatusActivity)
         }

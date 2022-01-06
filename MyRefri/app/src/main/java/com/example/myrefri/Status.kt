@@ -47,6 +47,23 @@ class Status : AppCompatActivity() {
             }
         }
 
+        //---------------------------------------------------------------------------------
+        /*Este código funciona de igual manera que el anterior, pero trabaja con la información que el usuario agrega manualmente*/
+        var levels_keyname_editText_arr :Array<String> = arrayOf(
+            "Nivel1_4","Nivel2_4","Nivel3_4","Nivel4_4","Nivel5_4","Nivel6_4"
+        )
+        //Array  para guardar la información que viene de la actividad Main, de los productos ingresados manualmente
+        var written_products_arr :Array<String?> = Array(6,{""})
+        //Se usa la clave para recuperar la información de la actividad Main y se guarda en written_products_arr
+        var written_product_key:String
+
+        for(i in (0 until written_products_arr.size)){
+            written_product_key = levels_keyname_editText_arr[i]
+            written_products_arr[i] = intent.getStringExtra(written_product_key).toString()
+        }
+        //---------------------------------------------------------------------------------
+
+
         //Matrices que contienen la información de los textView e imageView para establecer el nombre del producto y su imagen
         var txtView_mat:Array<Array<TextView>> = arrayOf(
             arrayOf(findViewById(R.id.tv_producto_n1_1),findViewById(R.id.tv_producto_n1_2),findViewById(R.id.tv_producto_n1_3)),
@@ -56,6 +73,13 @@ class Status : AppCompatActivity() {
             arrayOf(findViewById(R.id.tv_producto_n5_1),findViewById(R.id.tv_producto_n5_2),findViewById(R.id.tv_producto_n5_3)),
             arrayOf(findViewById(R.id.tv_producto_n6_1),findViewById(R.id.tv_producto_n6_2),findViewById(R.id.tv_producto_n6_3))
         )
+
+        var txtView_written_prodducts_arr:Array<TextView> = arrayOf(
+            findViewById(R.id.tv_producto_n1_4),findViewById(R.id.tv_producto_n2_4),findViewById(R.id.tv_producto_n3_4),
+            findViewById(R.id.tv_producto_n4_4),findViewById(R.id.tv_producto_n5_4),findViewById(R.id.tv_producto_n6_4)
+        )
+
+
 
         var imgView_mat:Array<Array<ImageView>> = arrayOf(
             arrayOf(findViewById(R.id.iv_n1_1),findViewById(R.id.iv_n1_2),findViewById(R.id.iv_n1_3)),
@@ -75,12 +99,12 @@ class Status : AppCompatActivity() {
 
         //Se crean 6 objetos de la clase Nivel, para configurar cada nivel
         //El número de cada nivel en número entero, productos del nivel correspondiente, los 3 textView correspondientes al nivel, los 3 imageView correspondientes al nivel
-        val level1 :LevelClass = LevelClass(1, selected_products_mat[0], txtView_mat[0], imgView_mat[0])
-        val level2 :LevelClass = LevelClass(2, selected_products_mat[1], txtView_mat[1], imgView_mat[1])
-        val level3 :LevelClass = LevelClass(3, selected_products_mat[2], txtView_mat[2], imgView_mat[2])
-        val level4 :LevelClass = LevelClass(4, selected_products_mat[3], txtView_mat[3], imgView_mat[3])
-        val level5 :LevelClass = LevelClass(5, selected_products_mat[4], txtView_mat[4], imgView_mat[4])
-        val level6 :LevelClass = LevelClass(6, selected_products_mat[5], txtView_mat[5], imgView_mat[5])
+        val level1 :LevelClass = LevelClass(1, selected_products_mat[0], txtView_mat[0], imgView_mat[0],written_products_arr[0],txtView_written_prodducts_arr[0])
+        val level2 :LevelClass = LevelClass(2, selected_products_mat[1], txtView_mat[1], imgView_mat[1],written_products_arr[1],txtView_written_prodducts_arr[1])
+        val level3 :LevelClass = LevelClass(3, selected_products_mat[2], txtView_mat[2], imgView_mat[2],written_products_arr[2],txtView_written_prodducts_arr[2])
+        val level4 :LevelClass = LevelClass(4, selected_products_mat[3], txtView_mat[3], imgView_mat[3],written_products_arr[3],txtView_written_prodducts_arr[3])
+        val level5 :LevelClass = LevelClass(5, selected_products_mat[4], txtView_mat[4], imgView_mat[4],written_products_arr[4],txtView_written_prodducts_arr[4])
+        val level6 :LevelClass = LevelClass(6, selected_products_mat[5], txtView_mat[5], imgView_mat[5],written_products_arr[5],txtView_written_prodducts_arr[5])
 
 
         //Se usan las funciones config_tv y config_imv para mostrar el nombre e imagen de cada alimento en la interfaz Status

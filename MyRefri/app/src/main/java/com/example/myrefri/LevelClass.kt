@@ -3,7 +3,8 @@ import android.content.Intent
 import android.widget.ImageView
 import android.widget.TextView
 
-public class LevelClass(var int_level:Int, var selected_products_arr:Array<String?>, var txtview_arr:Array<TextView>, var imview_arr:Array<ImageView>) {
+public class LevelClass(var int_level:Int, var selected_products_arr:Array<String?>, var txtview_arr:Array<TextView>, var imview_arr:Array<ImageView>,
+                        var written_product :String?,var txtView_written_product:TextView) {
 
 
     //------------------Función para configurar los textView de un nivel
@@ -20,6 +21,11 @@ public class LevelClass(var int_level:Int, var selected_products_arr:Array<Strin
                     this.txtview_arr[i].text=selected_product
             }
         }
+            if(this.written_product=="null"||this.written_product=="") {
+                this.txtView_written_product.text="Producto sin agregar"
+            } else{
+                this.txtView_written_product.text=written_product
+            }
     }
 
     //--------------------Función para configurar los imageView de cada nivel
