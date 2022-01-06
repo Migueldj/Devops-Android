@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity() {
         //------------------------------------------------------------------------------------------
         //Matriz con el tipo de producto por nivel
         var products_by_level_mat:Array<Array<MutableList<String>>> = arrayOf(
-            arrayOf(Arrays.asList("Res","Puerco","Pollo","Pescado","Otros","Vacío")),
-            arrayOf(Arrays.asList("Paletas","Helado","Hielo","Otros","Vacío")),
-            arrayOf(Arrays.asList("Queso","Jamón","Salchicha","Otros","Vacío")),
-            arrayOf(Arrays.asList("Yogurt","Leche","Gelatina","Huevo","Otros","Vacío")),
-            arrayOf(Arrays.asList("Comida Sobrante","Agua","Jugo","Otros","Vacío")),
-            arrayOf(Arrays.asList("Jitomate","Cebolla","Chiles","Limón","Verduras","Otros","Vacío")),
+            arrayOf(Arrays.asList("Res","Puerco","Pollo","Pescado","Vacío")),
+            arrayOf(Arrays.asList("Paletas","Helado","Hielo","Vacío")),
+            arrayOf(Arrays.asList("Queso","Jamón","Salchicha","Vacío")),
+            arrayOf(Arrays.asList("Yogurt","Leche","Gelatina","Huevo","Vacío")),
+            arrayOf(Arrays.asList("Comida Sobrante","Agua","Jugo","Vacío")),
+            arrayOf(Arrays.asList("Jitomate","Cebolla","Chiles","Limón","Verduras","Vacío")),
         )
 
         //Matriz de 6x3 (6 niveles y 3 subniveles), para configurar el ArrayAdapter de los spinners

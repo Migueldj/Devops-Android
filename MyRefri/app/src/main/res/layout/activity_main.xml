@@ -93,6 +93,7 @@
                         tools:layout_editor_absoluteX="7dp" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -135,6 +136,29 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.197"
                         tools:layout_editor_absoluteX="7dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_n1"
+                        android:layout_width="320dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Ingresa otro producto"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColor="@color/white">
+                    </EditText>
                 </LinearLayout>
             </LinearLayout>
 
@@ -231,7 +255,29 @@
                         tools:layout_editor_absoluteX="7dp" />
                 </LinearLayout>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_n2"
+                        android:layout_width="320dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Ingresa otro producto"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColor="@color/white">
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -326,7 +372,29 @@
                         tools:layout_editor_absoluteX="7dp" />
                 </LinearLayout>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_n3"
+                        android:layout_width="320dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Ingresa otro producto"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColor="@color/white">
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -421,7 +489,29 @@
                         tools:layout_editor_absoluteX="7dp" />
                 </LinearLayout>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_n4"
+                        android:layout_width="320dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Ingresa otro producto"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColor="@color/white">
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -516,7 +606,29 @@
                         tools:layout_editor_absoluteX="7dp" />
                 </LinearLayout>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_n5"
+                        android:layout_width="320dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Ingresa otro producto"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColor="@color/white">
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -609,6 +721,29 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.197"
                         tools:layout_editor_absoluteX="7dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_n6"
+                        android:layout_width="320dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Ingresa otro producto"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColor="@color/white">
+                    </EditText>
                 </LinearLayout>
             </LinearLayout>
 
