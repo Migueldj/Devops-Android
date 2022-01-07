@@ -33,12 +33,12 @@ class ShoppingList : AppCompatActivity() {
 
     //Matriz que simula la cantidad en kg que hay de cada alimento
     var weight_mat :Array<Array<Int>> = arrayOf(
-        arrayOf(2,4,2),
-        arrayOf(2,4,2),
-        arrayOf(2,4,2),
-        arrayOf(2,4,2),
-        arrayOf(2,4,2),
-        arrayOf(2,4,2),
+        arrayOf(2,2,2,2),
+        arrayOf(2,4,2,2),
+        arrayOf(2,4,2,2),
+        arrayOf(2,4,2,2),
+        arrayOf(2,4,2,2),
+        arrayOf(2,4,2,2),
     )
 
     //Matriz que contendrá los id de los checkbox
@@ -68,6 +68,20 @@ class ShoppingList : AppCompatActivity() {
             }
         }
 
+        /*Este código funciona de igual manera que el anterior, pero trabaja con la información que el usuario agrega manualmente*/
+        var levels_keyname_editText_arr :Array<String> = arrayOf(
+            "Nivel1_4","Nivel2_4","Nivel3_4","Nivel4_4","Nivel5_4","Nivel6_4"
+        )
+        //Array  para guardar la información que viene de la actividad Main, de los productos ingresados manualmente
+        var written_products_arr :Array<String?> = Array(6,{""})
+        //Se usa la clave para recuperar la información de la actividad Main y se guarda en written_products_arr
+        var written_product_key:String
+
+        for(i in (0 until written_products_arr.size)){
+            written_product_key = levels_keyname_editText_arr[i]
+            written_products_arr[i] = intent.getStringExtra(written_product_key).toString()
+        }
+
     //--------------------------------------------------------
         //Matriz con la información para localizar los checkbox de la actividad Shopping List
         checkbox_id_mat= arrayOf(
@@ -82,6 +96,29 @@ class ShoppingList : AppCompatActivity() {
         /*Se utiliza el método preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos
         por nivel que se hayan seleccionado desde la actividad Main, mismos que aparecen en la actividad Status*/
         pdfList.preSelectedCheckBox(all_products_mat,checkbox_id_mat,selected_products_mat,weight_mat)
+
+        //-----------------------------------------------------
+        var written_products_checkbox_arr:Array<View?> = arrayOf(checkbox_id_mat[0][4],checkbox_id_mat[1][3],checkbox_id_mat[2][3],checkbox_id_mat[3][4],checkbox_id_mat[4][2],checkbox_id_mat[5][5])
+
+        for(i in (0 until written_products_checkbox_arr.size)){
+            var view:View?=written_products_checkbox_arr[i]
+            if(view is CheckBox){
+                if(written_products_arr[i]!="No hay valores aún"){
+                    view.text=written_products_arr[i]
+                }else{
+                    view.text=""
+                    view.isEnabled=false
+                }
+
+            }
+            if(weight_mat[i][3]<3){
+                view = written_products_checkbox_arr[i]
+                if(view is CheckBox){
+                    if(view.text!="")
+                    view.isChecked=true
+                }
+            }
+        }
 
         //---------------------------------------------------------------------
         /*La función configPDF gestiona los permisos para la escritura en la memoria y poder generar el PDF,

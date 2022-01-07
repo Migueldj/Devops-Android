@@ -131,6 +131,16 @@ class Status : AppCompatActivity() {
                     intent_ShoppingListActivity.putExtra(product_key,selected_products_mat[i][j])
                 }
             }
+            //Código para enviar  ShoppingList, la información de los productos que el usuario ingresó manualmente
+            var level_keyname_editTex:String
+            var level_info_editText:String?
+            for (i in (0 until levels_keyname_editText_arr.size)){
+                level_info_editText   = written_products_arr[i]
+                level_keyname_editTex = levels_keyname_editText_arr[i]
+                intent_ShoppingListActivity.putExtra(level_keyname_editTex,level_info_editText)
+            }
+
+
             startActivity(intent_ShoppingListActivity)
         }
 
