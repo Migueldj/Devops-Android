@@ -71,6 +71,7 @@ class GeneratePDFClass {
                 }else{
                     view.text=""
                     view.isEnabled=false
+                    view.isChecked=false
                 }
             }
             if(weight_mat[i][3]<3){
