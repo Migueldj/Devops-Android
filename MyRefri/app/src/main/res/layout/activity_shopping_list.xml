@@ -713,7 +713,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/white"
-                        android:text="Otros"
+                        android:text="Verduras"
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
@@ -729,7 +729,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/white"
-                        android:text="Verduras"
+                        android:text="Otros"
                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>

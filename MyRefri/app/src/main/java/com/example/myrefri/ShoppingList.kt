@@ -27,9 +27,12 @@ class ShoppingList : AppCompatActivity() {
         arrayOf("Paletas","Helado","Hielo","Otros","Vacío"),
         arrayOf("Queso","Jamón","Salchicha","Otros","Vacío"),
         arrayOf("Yogurt","Leche","Gelatina","Huevo","Otros","Vacío"),
-        arrayOf("Comida Sobrante","Agua","Jugo","Otros","Vacío"),
+        arrayOf("Agua","Jugo","Comida Sobrante","Otros","Vacío"),
         arrayOf("Jitomate","Cebolla","Chiles","Limón","Verduras","Otros","Vacío"),
     )
+
+    //Array  para guardar la información que viene de la actividad Main, de los productos ingresados manualmente
+    var written_products_arr :Array<String?> = Array(6,{""})
 
     //Matriz que simula la cantidad en kg que hay de cada alimento
     var weight_mat :Array<Array<Int>> = arrayOf(
@@ -72,8 +75,7 @@ class ShoppingList : AppCompatActivity() {
         var levels_keyname_editText_arr :Array<String> = arrayOf(
             "Nivel1_4","Nivel2_4","Nivel3_4","Nivel4_4","Nivel5_4","Nivel6_4"
         )
-        //Array  para guardar la información que viene de la actividad Main, de los productos ingresados manualmente
-        var written_products_arr :Array<String?> = Array(6,{""})
+
         //Se usa la clave para recuperar la información de la actividad Main y se guarda en written_products_arr
         var written_product_key:String
 
@@ -93,32 +95,17 @@ class ShoppingList : AppCompatActivity() {
         arrayOf(findViewById<CheckBox>(R.id.cBox_n6_1),findViewById<CheckBox>(R.id.cBox_n6_2),findViewById<CheckBox>(R.id.cBox_n6_3),findViewById<CheckBox>(R.id.cBox_n6_4),findViewById<CheckBox>(R.id.cBox_n6_5),findViewById<CheckBox>(R.id.cBox_n6_6)),
         )
 
-        /*Se utiliza el método preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos
+        /*Se utiliza la función preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos
         por nivel que se hayan seleccionado desde la actividad Main, mismos que aparecen en la actividad Status*/
         pdfList.preSelectedCheckBox(all_products_mat,checkbox_id_mat,selected_products_mat,weight_mat)
 
         //-----------------------------------------------------
+        //Array con los id de los checkbox que se usarán para la los productos que el usuario ingresó manualmente
         var written_products_checkbox_arr:Array<View?> = arrayOf(checkbox_id_mat[0][4],checkbox_id_mat[1][3],checkbox_id_mat[2][3],checkbox_id_mat[3][4],checkbox_id_mat[4][2],checkbox_id_mat[5][5])
 
-        for(i in (0 until written_products_checkbox_arr.size)){
-            var view:View?=written_products_checkbox_arr[i]
-            if(view is CheckBox){
-                if(written_products_arr[i]!="No hay valores aún"){
-                    view.text=written_products_arr[i]
-                }else{
-                    view.text=""
-                    view.isEnabled=false
-                }
-
-            }
-            if(weight_mat[i][3]<3){
-                view = written_products_checkbox_arr[i]
-                if(view is CheckBox){
-                    if(view.text!="")
-                    view.isChecked=true
-                }
-            }
-        }
+        /*Se utiliza la función setWrittenProductsCheckBox para dar nombre a los checkbox con base en los productos que ingresó el usuario manualmente
+        * también, funciona de manera similar a la función  preSelectedCheckBox, preseleccionando los checkbox, con base en los "kg" que tiene cada producto*/
+        pdfList.setWrittenProductsCheckBox(written_products_checkbox_arr ,written_products_arr  ,weight_mat)
 
         //---------------------------------------------------------------------
         /*La función configPDF gestiona los permisos para la escritura en la memoria y poder generar el PDF,
@@ -129,10 +116,10 @@ class ShoppingList : AppCompatActivity() {
                     val permissions= arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     requestPermissions(permissions,STORAGE_CODE)
                 }else {
-                    pdfList.savePDFWithCBox(this,all_products_mat,checkbox_id_mat)
+                    pdfList.savePDFWithCBox(this,all_products_mat,written_products_arr,checkbox_id_mat)
                 }
             }else{
-                pdfList.savePDFWithCBox(this,all_products_mat,checkbox_id_mat)
+                pdfList.savePDFWithCBox(this,all_products_mat,written_products_arr,checkbox_id_mat)
             }
         }
 
@@ -154,7 +141,7 @@ class ShoppingList : AppCompatActivity() {
         when(requestCode){
             STORAGE_CODE ->{
                 if(grantResults.size>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    pdfList.savePDFWithCBox(this,all_products_mat,checkbox_id_mat)
+                    pdfList.savePDFWithCBox(this,all_products_mat,written_products_arr,checkbox_id_mat)
                 }else{
                     Toast.makeText(this,"Permisson denied",Toast.LENGTH_SHORT).show()
                 }
