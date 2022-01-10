@@ -56,6 +56,32 @@ class GeneratePDFClass {
 
             }
         }
+
+
+    }
+
+    /*Función para configurar los checkbox con base en los productos que el usuario ingresa manualmente, da el nombre a cada checkbox respectivamente y lo preselecciona
+     dependiendo el peso simulado de la matriz weight_mat*/
+    fun setWrittenProductsCheckBox(written_products_checkbox_arr:Array<View?> ,written_products_arr :Array<String?> ,weight_mat :Array<Array<Int>>){
+        for(i in (0 until written_products_checkbox_arr.size)){
+            var view:View?=written_products_checkbox_arr[i]
+            if(view is CheckBox){
+                if(written_products_arr[i]!="No hay valores aún"){
+                    view.text=written_products_arr[i]
+                }else{
+                    view.text=""
+                    view.isEnabled=false
+                    view.isChecked=false
+                }
+            }
+            if(weight_mat[i][3]<3){
+                view = written_products_checkbox_arr[i]
+                if(view is CheckBox){
+                    if(view.text!="")
+                        view.isChecked=true
+                }
+            }
+        }
     }
 
 
@@ -111,15 +137,32 @@ class GeneratePDFClass {
         return checkbox_result_mat
     }
 
+    /*Como algunas funciones trabajan con base en los indices de matrices y arreglos ya definidos, y para no alterar dichas funciones
+     se creo la función changeLastRowProduct, la cual se encarga de modificar el penúltimo elemento de cada renglón de la modified_matrix = matriz all_products_mat
+     cambiará el dato "Otros", por el dato que el usuario haya ingresado manualmente, todos estos datos serán excepto para el dato que está en modified_matrix[4][2], ya que al no considerar "Comida sobrante"
+      como una posible compra, el algoritmo no funciona correctamente para este elemento, por lo que se modifica a parte*/
+
+    fun changeLastRowProduct(all_products_mat: Array<Array<String?>>,written_products:Array<String?>):Array<Array<String?>>{
+        var index:Int
+        var modified_matrix:Array<Array<String?>> = all_products_mat
+        for(i in (0 until 6)){
+            index=(modified_matrix[i].size)-2
+            modified_matrix[i][index]=written_products[i]
+        }
+        modified_matrix[4][2] = written_products[4]
+        return modified_matrix
+    }
+
 
     /*
     * Esta función hace uso de las 2 anteriores setPDFListCheckBox, y checkBoxMatrixResults y recibe las matrices necesarias y después
     * se las pasa a las 2 funciones anteriores en forma de Array para ir agregando parrafos al PDF nivel por nivel
     * */
     @RequiresApi(Build.VERSION_CODES.N)
-    fun savePDFWithCBox(context: Context,all_products_mat: Array<Array<String?>>,checkbox_id_mat:Array<Array<View?>>) {
+    fun savePDFWithCBox(context: Context,all_products_mat: Array<Array<String?>>,written_products:Array<String?>,checkbox_id_mat:Array<Array<View?>>) {
 
         var checkbox_bool_mat: Array<Array<Boolean?>> = checkBoxMatrixResults(checkbox_id_mat)
+        var modified_matrix:Array<Array<String?>>     = changeLastRowProduct(all_products_mat,written_products)
 
         try {
             PdfWriter.getInstance(mDoc,FileOutputStream(mFilePath))
@@ -127,17 +170,17 @@ class GeneratePDFClass {
             mDoc.addAuthor("Juan")
             mDoc.add(Paragraph("==============================Lista de Compras==============================\n"))
             mDoc.add(Paragraph("\n*****Nivel 1*****"))
-            setPDFListCheckBox(all_products_mat[0],checkbox_bool_mat[0])
+            setPDFListCheckBox(modified_matrix[0],checkbox_bool_mat[0])
             mDoc.add(Paragraph("\n*****Nivel 2*****"))
-            setPDFListCheckBox(all_products_mat[1],checkbox_bool_mat[1])
+            setPDFListCheckBox(modified_matrix[1],checkbox_bool_mat[1])
             mDoc.add(Paragraph("\n*****Nivel 3*****"))
-            setPDFListCheckBox(all_products_mat[2],checkbox_bool_mat[2])
+            setPDFListCheckBox(modified_matrix[2],checkbox_bool_mat[2])
             mDoc.add(Paragraph("\n*****Nivel 4*****"))
-            setPDFListCheckBox(all_products_mat[3],checkbox_bool_mat[3])
+            setPDFListCheckBox(modified_matrix[3],checkbox_bool_mat[3])
             mDoc.add(Paragraph("\n*****Nivel 5*****"))
-            setPDFListCheckBox(all_products_mat[4],checkbox_bool_mat[4])
+            setPDFListCheckBox(modified_matrix[4],checkbox_bool_mat[4])
             mDoc.add(Paragraph("\n*****Nivel 6*****"))
-            setPDFListCheckBox(all_products_mat[5],checkbox_bool_mat[5])
+            setPDFListCheckBox(modified_matrix[5],checkbox_bool_mat[5])
             mDoc.close()
             Toast.makeText(context,"$mFileName.pdf\nis save to\n$mFilePath",Toast.LENGTH_SHORT).show()
             Toast.makeText(context,"Para generar otra lista es necesario reiniciar la aplicación",Toast.LENGTH_SHORT).show()
