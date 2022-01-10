@@ -41,18 +41,14 @@ class ShoppingList : AppCompatActivity() {
     //Array  para guardar la información que viene de la actividad Main, de los productos ingresados manualmente
     var written_products_arr :Array<String?> = Array(6,{""})
 
-    //Matriz que simula la cantidad en kg que hay de cada alimento
-    var weight_mat :Array<Array<Int>> = arrayOf(
-        arrayOf(2,2,2,2),
-        arrayOf(2,4,2,2),
-        arrayOf(2,4,2,2),
-        arrayOf(2,4,2,2),
-        arrayOf(2,4,2,2),
-        arrayOf(2,4,2,2),
-    )
+    //Matriz para la cantidad en kg que hay de cada alimento
+    var weight_mat :Array<Array<Int>> =  Array(6) {Array(4) {0} }
 
     //Matriz que contendrá los id de los checkbox
     lateinit var checkbox_id_mat:Array<Array<View?>>
+
+    //Matriz que contendrá los id de los checkbox para los productos ingresados manualmente
+    lateinit var written_products_checkbox_arr:Array<View?>
 
     private val sharedPrefFile = "kotlinsharedpreference"
     private lateinit var database: DatabaseReference
@@ -109,17 +105,8 @@ class ShoppingList : AppCompatActivity() {
         arrayOf(findViewById<CheckBox>(R.id.cBox_n6_1),findViewById<CheckBox>(R.id.cBox_n6_2),findViewById<CheckBox>(R.id.cBox_n6_3),findViewById<CheckBox>(R.id.cBox_n6_4),findViewById<CheckBox>(R.id.cBox_n6_5),findViewById<CheckBox>(R.id.cBox_n6_6)),
         )
 
-        /*Se utiliza la función preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos
-        por nivel que se hayan seleccionado desde la actividad Main, mismos que aparecen en la actividad Status*/
-        pdfList.preSelectedCheckBox(all_products_mat,checkbox_id_mat,selected_products_mat,weight_mat)
-
-        //-----------------------------------------------------
         //Array con los id de los checkbox que se usarán para la los productos que el usuario ingresó manualmente
-        var written_products_checkbox_arr:Array<View?> = arrayOf(checkbox_id_mat[0][4],checkbox_id_mat[1][3],checkbox_id_mat[2][3],checkbox_id_mat[3][4],checkbox_id_mat[4][2],checkbox_id_mat[5][5])
-
-        /*Se utiliza la función setWrittenProductsCheckBox para dar nombre a los checkbox con base en los productos que ingresó el usuario manualmente
-        * también, funciona de manera similar a la función  preSelectedCheckBox, preseleccionando los checkbox, con base en los "kg" que tiene cada producto*/
-        pdfList.setWrittenProductsCheckBox(written_products_checkbox_arr ,written_products_arr  ,weight_mat)
+        written_products_checkbox_arr= arrayOf(checkbox_id_mat[0][4],checkbox_id_mat[1][3],checkbox_id_mat[2][3],checkbox_id_mat[3][4],checkbox_id_mat[4][2],checkbox_id_mat[5][5])
 
         //---------------------------------------------------------------------
         /*La función configPDF gestiona los permisos para la escritura en la memoria y poder generar el PDF,
@@ -170,40 +157,28 @@ class ShoppingList : AppCompatActivity() {
                 /*val value = dataSnapshot.getValue<Long>()
                 val firstLevel = findViewById<TextView>(R.id.tv_kg_n1_1)
                 firstLevel.text = "${value.toString()} kg"*/
-                val value1 = dataSnapshot.child("Elemento1").getValue<Int>()!!.toInt()
-                val value2 = dataSnapshot.child("Elemento2").getValue<Int>()!!.toInt()
-                val value3 = dataSnapshot.child("Elemento3").getValue<Int>()!!.toInt()
-                val value4 = dataSnapshot.child("Elemento4").getValue<Int>()!!.toInt()
-                val value5 = dataSnapshot.child("Elemento5").getValue<Int>()!!.toInt()
-                val value6 = dataSnapshot.child("Elemento6").getValue<Int>()!!.toInt()
-                val value7 = dataSnapshot.child("Elemento7").getValue<Int>()!!.toInt()
-                val value8 = dataSnapshot.child("Elemento8").getValue<Int>()!!.toInt()
-                val value9 = dataSnapshot.child("Elemento9").getValue<Int>()!!.toInt()
-                val value10 = dataSnapshot.child("Elemento10").getValue<Int>()!!.toInt()
-                val value11 = dataSnapshot.child("Elemento11").getValue<Int>()!!.toInt()
-                val value12 = dataSnapshot.child("Elemento12").getValue<Int>()!!.toInt()
-                val value13 = dataSnapshot.child("Elemento13").getValue<Int>()!!.toInt()
-                val value14 = dataSnapshot.child("Elemento14").getValue<Int>()!!.toInt()
-                val value15 = dataSnapshot.child("Elemento15").getValue<Int>()!!.toInt()
-                val value16 = dataSnapshot.child("Elemento16").getValue<Int>()!!.toInt()
-                val value17 = dataSnapshot.child("Elemento17").getValue<Int>()!!.toInt()
-                val value18 = dataSnapshot.child("Elemento18").getValue<Int>()!!.toInt()
-                val value19 = dataSnapshot.child("Elemento19").getValue<Int>()!!.toInt()
-                val value20 = dataSnapshot.child("Elemento20").getValue<Int>()!!.toInt()
-                val value21 = dataSnapshot.child("Elemento21").getValue<Int>()!!.toInt()
-                val value22 = dataSnapshot.child("Elemento22").getValue<Int>()!!.toInt()
-                val value23 = dataSnapshot.child("Elemento23").getValue<Int>()!!.toInt()
-                val value24 = dataSnapshot.child("Elemento24").getValue<Int>()!!.toInt()
-                weight_mat = arrayOf(
-                    arrayOf(value1,value2,value3,value4),
-                    arrayOf(value5,value6,value7,value8),
-                    arrayOf(value9,value10,value11,value12),
-                    arrayOf(value13,value14,value15,value16),
-                    arrayOf(value17,value18,value19,value20),
-                    arrayOf(value21,value22,value23,value24),
+                var values_names_mat :Array<Array<String>> = arrayOf(
+                    arrayOf("Elemento1","Elemento2","Elemento3","Elemento4"),
+                    arrayOf("Elemento5","Elemento6","Elemento7","Elemento8"),
+                    arrayOf("Elemento9","Elemento10","Elemento11","Elemento12"),
+                    arrayOf("Elemento13","Elemento14","Elemento15","Elemento16"),
+                    arrayOf("Elemento17","Elemento18","Elemento19","Elemento20"),
+                    arrayOf("Elemento21","Elemento22","Elemento23","Elemento24"),
                 )
-            }
+                for (i in (0 until 6)){
+                    for(j in (0 until 4)){
+                        weight_mat[i][j]=dataSnapshot.child(values_names_mat[i][j]).getValue<Int>()!!.toInt()
+                    }
+                }
+                /*Se utiliza la función preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos
+                 por nivel que se hayan seleccionado desde la actividad Main, mismos que aparecen en la actividad Status*/
+                pdfList.preSelectedCheckBox(all_products_mat,checkbox_id_mat,selected_products_mat,weight_mat)
 
+                /*Se utiliza la función setWrittenProductsCheckBox para dar nombre a los checkbox con base en los productos que ingresó el usuario manualmente
+                * también, funciona de manera similar a la función  preSelectedCheckBox, preseleccionando los checkbox, con base en los "kg" que tiene cada producto*/
+                pdfList.setWrittenProductsCheckBox(written_products_checkbox_arr ,written_products_arr  ,weight_mat)
+
+            }
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.w("TAG", "loadValue:onCancelled", databaseError.toException())
             }

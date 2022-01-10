@@ -4,16 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 
 class Status : AppCompatActivity() {
 
     private val sharedPrefFile = "kotlinsharedpreference"
     private lateinit var database: DatabaseReference
+
+    //Matriz que contendrá los id de los checkbox
+    lateinit var text_view_kg_id_mat:Array<Array<TextView>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,6 +96,16 @@ class Status : AppCompatActivity() {
             arrayOf(findViewById(R.id.iv_n6_1),findViewById(R.id.iv_n6_2),findViewById(R.id.iv_n6_3))
         )
 
+        text_view_kg_id_mat= arrayOf(
+            arrayOf(findViewById(R.id.tv_kg_n1_1),findViewById(R.id.tv_kg_n1_2),findViewById(R.id.tv_kg_n1_3),findViewById(R.id.tv_kg_n1_4)),
+            arrayOf(findViewById(R.id.tv_kg_n2_1),findViewById(R.id.tv_kg_n2_2),findViewById(R.id.tv_kg_n2_3),findViewById(R.id.tv_kg_n2_4)),
+            arrayOf(findViewById(R.id.tv_kg_n3_1),findViewById(R.id.tv_kg_n3_2),findViewById(R.id.tv_kg_n3_3),findViewById(R.id.tv_kg_n3_4)),
+            arrayOf(findViewById(R.id.tv_kg_n4_1),findViewById(R.id.tv_kg_n4_2),findViewById(R.id.tv_kg_n4_3),findViewById(R.id.tv_kg_n4_4)),
+            arrayOf(findViewById(R.id.tv_kg_n5_1),findViewById(R.id.tv_kg_n5_2),findViewById(R.id.tv_kg_n5_3),findViewById(R.id.tv_kg_n5_4)),
+            arrayOf(findViewById(R.id.tv_kg_n6_1),findViewById(R.id.tv_kg_n6_2),findViewById(R.id.tv_kg_n6_3),findViewById(R.id.tv_kg_n6_4)),
+
+        )
+
 
         /*Se crea un objeto de la clase SaveData, se le asigna la información actual y dependiendo de si había o no datos previos
         reasigna nuevamente la matriz selected_products_mat, para posteriormente crear los niveles con esa información */
@@ -141,7 +156,6 @@ class Status : AppCompatActivity() {
                 intent_ShoppingListActivity.putExtra(level_keyname_editTex,level_info_editText)
             }
 
-
             startActivity(intent_ShoppingListActivity)
         }
 
@@ -168,79 +182,24 @@ class Status : AppCompatActivity() {
                 /*val value = dataSnapshot.getValue<Long>()
                 val firstLevel = findViewById<TextView>(R.id.tv_kg_n1_1)
                 firstLevel.text = "${value.toString()} kg"*/
-                val value1 = dataSnapshot.child("Elemento1").value
+
                 /*val valor1 = dataSnapshot.child("Elemento1").getValue<Int>()!!.toInt()*/
-                val element1 = findViewById<TextView>(R.id.tv_kg_n1_1)
-                element1.text = "${value1.toString()} kg"
-                val value2 = dataSnapshot.child("Elemento2").value
-                val element2 = findViewById<TextView>(R.id.tv_kg_n1_2)
-                element2.text = "${value2.toString()} kg"
-                val value3 = dataSnapshot.child("Elemento3").value
-                val element3 = findViewById<TextView>(R.id.tv_kg_n1_3)
-                element3.text = "${value3.toString()} kg"
-                val value4 = dataSnapshot.child("Elemento4").value
-                val element4 = findViewById<TextView>(R.id.tv_kg_n1_4)
-                element4.text = "${value4.toString()} kg"
-                val value5 = dataSnapshot.child("Elemento5").value
-                val element5 = findViewById<TextView>(R.id.tv_kg_n2_1)
-                element5.text = "${value5.toString()} kg"
-                val value6 = dataSnapshot.child("Elemento6").value
-                val element6 = findViewById<TextView>(R.id.tv_kg_n2_2)
-                element6.text = "${value6.toString()} kg"
-                val value7 = dataSnapshot.child("Elemento7").value
-                val element7 = findViewById<TextView>(R.id.tv_kg_n2_3)
-                element7.text = "${value7.toString()} kg"
-                val value8 = dataSnapshot.child("Elemento8").value
-                val element8 = findViewById<TextView>(R.id.tv_kg_n2_4)
-                element8.text = "${value8.toString()} kg"
-                val value9 = dataSnapshot.child("Elemento9").value
-                val element9 = findViewById<TextView>(R.id.tv_kg_n3_1)
-                element9.text = "${value9.toString()} kg"
-                val value10 = dataSnapshot.child("Elemento10").value
-                val element10 = findViewById<TextView>(R.id.tv_kg_n3_2)
-                element10.text = "${value10.toString()} kg"
-                val value11 = dataSnapshot.child("Elemento11").value
-                val element11 = findViewById<TextView>(R.id.tv_kg_n3_3)
-                element11.text = "${value11.toString()} kg"
-                val value12 = dataSnapshot.child("Elemento12").value
-                val element12 = findViewById<TextView>(R.id.tv_kg_n3_4)
-                element12.text = "${value12.toString()} kg"
-                val value13 = dataSnapshot.child("Elemento13").value
-                val element13 = findViewById<TextView>(R.id.tv_kg_n4_1)
-                element13.text = "${value13.toString()} kg"
-                val value14 = dataSnapshot.child("Elemento14").value
-                val element14 = findViewById<TextView>(R.id.tv_kg_n4_2)
-                element14.text = "${value14.toString()} kg"
-                val value15 = dataSnapshot.child("Elemento15").value
-                val element15 = findViewById<TextView>(R.id.tv_kg_n4_3)
-                element15.text = "${value15.toString()} kg"
-                val value16 = dataSnapshot.child("Elemento16").value
-                val element16 = findViewById<TextView>(R.id.tv_kg_n4_4)
-                element16.text = "${value16.toString()} kg"
-                val value17 = dataSnapshot.child("Elemento17").value
-                val element17 = findViewById<TextView>(R.id.tv_kg_n5_1)
-                element17.text = "${value17.toString()} kg"
-                val value18 = dataSnapshot.child("Elemento18").value
-                val element18 = findViewById<TextView>(R.id.tv_kg_n5_2)
-                element18.text = "${value18.toString()} kg"
-                val value19 = dataSnapshot.child("Elemento19").value
-                val element19 = findViewById<TextView>(R.id.tv_kg_n5_3)
-                element19.text = "${value19.toString()} kg"
-                val value20 = dataSnapshot.child("Elemento20").value
-                val element20 = findViewById<TextView>(R.id.tv_kg_n5_4)
-                element20.text = "${value20.toString()} kg"
-                val value21 = dataSnapshot.child("Elemento21").value
-                val element21 = findViewById<TextView>(R.id.tv_kg_n6_1)
-                element21.text = "${value21.toString()} kg"
-                val value22 = dataSnapshot.child("Elemento22").value
-                val element22 = findViewById<TextView>(R.id.tv_kg_n6_2)
-                element22.text = "${value22.toString()} kg"
-                val value23 = dataSnapshot.child("Elemento23").value
-                val element23 = findViewById<TextView>(R.id.tv_kg_n6_3)
-                element23.text = "${value23.toString()} kg"
-                val value24 = dataSnapshot.child("Elemento24").value
-                val element24 = findViewById<TextView>(R.id.tv_kg_n6_4)
-                element24.text = "${value24.toString()} kg"
+                var values_names_mat :Array<Array<String>> = arrayOf(
+                    arrayOf("Elemento1","Elemento2","Elemento3","Elemento4"),
+                    arrayOf("Elemento5","Elemento6","Elemento7","Elemento8"),
+                    arrayOf("Elemento9","Elemento10","Elemento11","Elemento12"),
+                    arrayOf("Elemento13","Elemento14","Elemento15","Elemento16"),
+                    arrayOf("Elemento17","Elemento18","Elemento19","Elemento20"),
+                    arrayOf("Elemento21","Elemento22","Elemento23","Elemento24"),
+                )
+                for (i in (0 until 6)){
+                    for(j in (0 until 4)){
+                        var value=dataSnapshot.child(values_names_mat[i][j]).value
+                        text_view_kg_id_mat[i][j].text = "${value.toString()} kg"
+                    }
+                }
+
+                val value1 = dataSnapshot.child("Elemento1").value
                 Log.d("DataArray", value1.toString())
             }
 
