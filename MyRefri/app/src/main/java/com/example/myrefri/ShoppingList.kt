@@ -5,11 +5,18 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class ShoppingList : AppCompatActivity() {
     //Variable para usar en la creación del pdf
@@ -47,10 +54,17 @@ class ShoppingList : AppCompatActivity() {
     //Matriz que contendrá los id de los checkbox
     lateinit var checkbox_id_mat:Array<Array<View?>>
 
+    private val sharedPrefFile = "kotlinsharedpreference"
+    private lateinit var database: DatabaseReference
+
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping_list)
+        database = Firebase.database.reference
+
+        //Código que lee los datos de la base de datos
+        readData()
 
         //---------------------------------------------------------------------
         //El siguiente código funciona de la misma manera que en la actividad Status
@@ -147,5 +161,53 @@ class ShoppingList : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private  fun readData() {
+        database = FirebaseDatabase.getInstance().getReference("Elements")
+        val valueListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                /*val value = dataSnapshot.getValue<Long>()
+                val firstLevel = findViewById<TextView>(R.id.tv_kg_n1_1)
+                firstLevel.text = "${value.toString()} kg"*/
+                val value1 = dataSnapshot.child("Elemento1").getValue<Int>()!!.toInt()
+                val value2 = dataSnapshot.child("Elemento2").getValue<Int>()!!.toInt()
+                val value3 = dataSnapshot.child("Elemento3").getValue<Int>()!!.toInt()
+                val value4 = dataSnapshot.child("Elemento4").getValue<Int>()!!.toInt()
+                val value5 = dataSnapshot.child("Elemento5").getValue<Int>()!!.toInt()
+                val value6 = dataSnapshot.child("Elemento6").getValue<Int>()!!.toInt()
+                val value7 = dataSnapshot.child("Elemento7").getValue<Int>()!!.toInt()
+                val value8 = dataSnapshot.child("Elemento8").getValue<Int>()!!.toInt()
+                val value9 = dataSnapshot.child("Elemento9").getValue<Int>()!!.toInt()
+                val value10 = dataSnapshot.child("Elemento10").getValue<Int>()!!.toInt()
+                val value11 = dataSnapshot.child("Elemento11").getValue<Int>()!!.toInt()
+                val value12 = dataSnapshot.child("Elemento12").getValue<Int>()!!.toInt()
+                val value13 = dataSnapshot.child("Elemento13").getValue<Int>()!!.toInt()
+                val value14 = dataSnapshot.child("Elemento14").getValue<Int>()!!.toInt()
+                val value15 = dataSnapshot.child("Elemento15").getValue<Int>()!!.toInt()
+                val value16 = dataSnapshot.child("Elemento16").getValue<Int>()!!.toInt()
+                val value17 = dataSnapshot.child("Elemento17").getValue<Int>()!!.toInt()
+                val value18 = dataSnapshot.child("Elemento18").getValue<Int>()!!.toInt()
+                val value19 = dataSnapshot.child("Elemento19").getValue<Int>()!!.toInt()
+                val value20 = dataSnapshot.child("Elemento20").getValue<Int>()!!.toInt()
+                val value21 = dataSnapshot.child("Elemento21").getValue<Int>()!!.toInt()
+                val value22 = dataSnapshot.child("Elemento22").getValue<Int>()!!.toInt()
+                val value23 = dataSnapshot.child("Elemento23").getValue<Int>()!!.toInt()
+                val value24 = dataSnapshot.child("Elemento24").getValue<Int>()!!.toInt()
+                weight_mat = arrayOf(
+                    arrayOf(value1,value2,value3,value4),
+                    arrayOf(value5,value6,value7,value8),
+                    arrayOf(value9,value10,value11,value12),
+                    arrayOf(value13,value14,value15,value16),
+                    arrayOf(value17,value18,value19,value20),
+                    arrayOf(value21,value22,value23,value24),
+                )
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("TAG", "loadValue:onCancelled", databaseError.toException())
+            }
+        }
+        database.addValueEventListener(valueListener)
     }
 }

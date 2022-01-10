@@ -21,7 +21,7 @@ class Status : AppCompatActivity() {
 
         //Base de datos
         database = Firebase.database.reference
-        readData("Res")
+        readData()
 
         //---------------------------------------------------------------------
         //Matriz con los nombres para cada nivel y "subnivel", serán la clave/llave para recuperar información de la actividad Main
@@ -161,7 +161,7 @@ class Status : AppCompatActivity() {
 
     //---------------------------------------------
     //Código de backend
-    private  fun readData(element: String) {
+    private  fun readData() {
         database = FirebaseDatabase.getInstance().getReference("Elements")
         val valueListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -169,6 +169,7 @@ class Status : AppCompatActivity() {
                 val firstLevel = findViewById<TextView>(R.id.tv_kg_n1_1)
                 firstLevel.text = "${value.toString()} kg"*/
                 val value1 = dataSnapshot.child("Elemento1").value
+                /*val valor1 = dataSnapshot.child("Elemento1").getValue<Int>()!!.toInt()*/
                 val element1 = findViewById<TextView>(R.id.tv_kg_n1_1)
                 element1.text = "${value1.toString()} kg"
                 val value2 = dataSnapshot.child("Elemento2").value
