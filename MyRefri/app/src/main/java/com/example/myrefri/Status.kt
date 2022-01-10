@@ -237,7 +237,7 @@ class Status : AppCompatActivity() {
                 val value23 = dataSnapshot.child("Elemento23").value
                 val element23 = findViewById<TextView>(R.id.tv_kg_n6_3)
                 element23.text = "${value23.toString()} kg"
-                val value24 = dataSnapshot.child("Elemento8").value
+                val value24 = dataSnapshot.child("Elemento24").value
                 val element24 = findViewById<TextView>(R.id.tv_kg_n6_4)
                 element24.text = "${value24.toString()} kg"
                 Log.d("DataArray", value1.toString())
