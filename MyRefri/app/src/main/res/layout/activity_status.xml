@@ -110,22 +110,23 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_marginLeft="0dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_kg_n1_1"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -170,7 +171,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -179,13 +180,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n1_2"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -230,7 +231,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -239,13 +240,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n1_3"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -274,7 +275,7 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -283,13 +284,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n1_4"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -360,22 +361,23 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_marginLeft="0dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_kg_n2_1"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -421,7 +423,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -430,13 +432,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n2_2"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -481,7 +483,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -490,13 +492,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n2_3"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -525,7 +527,7 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -534,13 +536,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n2_4"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -611,7 +613,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -620,13 +622,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n3_1"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -671,7 +673,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -680,13 +682,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n3_2"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -731,7 +733,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -740,13 +742,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n3_3"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -775,7 +777,7 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -784,13 +786,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n3_4"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -861,7 +863,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -870,13 +872,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n4_1"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -921,7 +923,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -930,13 +932,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n4_2"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -981,7 +983,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -990,13 +992,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n4_3"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -1024,7 +1026,7 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1033,13 +1035,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n4_4"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -1110,7 +1112,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1119,13 +1121,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n5_1"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -1170,7 +1172,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1179,13 +1181,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n5_2"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -1230,7 +1232,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1239,13 +1241,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n5_3"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -1273,7 +1275,7 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1282,13 +1284,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n5_4"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -1359,7 +1361,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1368,13 +1370,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n6_1"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -1419,7 +1421,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1428,13 +1430,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n6_2"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -1479,7 +1481,7 @@
                 </LinearLayout>
                 <!-- Layout vertical para el porcentaje -->
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1488,13 +1490,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n6_3"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -1522,7 +1524,7 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="110dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -1531,13 +1533,13 @@
 
                     <TextView
                         android:id="@+id/tv_kg_n6_4"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="0 kg"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

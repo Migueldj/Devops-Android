@@ -42,7 +42,7 @@ class ShoppingList : AppCompatActivity() {
     var written_products_arr :Array<String?> = Array(6,{""})
 
     //Matriz para la cantidad en kg que hay de cada alimento
-    var weight_mat :Array<Array<Int>> =  Array(6) {Array(4) {0} }
+    var weight_mat :Array<Array<Float>> =  Array(6) {Array(4) {0.0f} }
 
     //Matriz que contendrá los id de los checkbox
     lateinit var checkbox_id_mat:Array<Array<View?>>
@@ -167,7 +167,8 @@ class ShoppingList : AppCompatActivity() {
                 )
                 for (i in (0 until 6)){
                     for(j in (0 until 4)){
-                        weight_mat[i][j]=dataSnapshot.child(values_names_mat[i][j]).getValue<Int>()!!.toInt()
+
+                        weight_mat[i][j]=dataSnapshot.child(values_names_mat[i][j]).getValue<Float>()!!.toFloat()
                     }
                 }
                 /*Se utiliza la función preSelectedCheckBox para preseleccionar los checkbox de la actividad Shopping list, dependiendo de la cantidad en kg que haya de cada alimento, así como de los 3 productos

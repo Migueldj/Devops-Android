@@ -37,18 +37,20 @@ class GeneratePDFClass {
     * Finalmente la matriz weight_mat es una matriz de 6x3, la cual simula la cantidad en Kg que hay de queda producto, en este caso, si es menor a 3 Kg, se seleccionará el checkbox corresóndiente
     * */
 
-    val max_weight = 27
+    val max_weight:Float = 0.3F
 
     fun preSelectedCheckBox(all_products_mat: Array<Array<String?>>, checkbox_id_mat: Array<Array<View?>>,
-                            selected_products_mat: Array<Array<String?>>, weight_mat :Array<Array<Int>>) {
+                            selected_products_mat: Array<Array<String?>>, weight_mat :Array<Array<Float>>) {
         var view: View?
+        var current_weight:Float
         for (i in (0 until 6)) {
             for (j in (0 until 3)) {
 
                 var id_index: Int = all_products_mat[i].indexOf(selected_products_mat[i][j])
 
                 if(id_index<checkbox_id_mat[i].size){
-                    if (weight_mat[i][j] < max_weight) {
+                    current_weight=weight_mat[i][j]
+                    if (current_weight < max_weight) {
                         view = checkbox_id_mat[i][id_index]
                         if (view is CheckBox) {
                             view.isChecked = true
@@ -64,7 +66,7 @@ class GeneratePDFClass {
 
     /*Función para configurar los checkbox con base en los productos que el usuario ingresa manualmente, da el nombre a cada checkbox respectivamente y lo preselecciona
      dependiendo el peso simulado de la matriz weight_mat*/
-    fun setWrittenProductsCheckBox(written_products_checkbox_arr:Array<View?> ,written_products_arr :Array<String?> ,weight_mat :Array<Array<Int>>){
+    fun setWrittenProductsCheckBox(written_products_checkbox_arr:Array<View?> ,written_products_arr :Array<String?> ,weight_mat :Array<Array<Float>>){
         for(i in (0 until written_products_checkbox_arr.size)){
             var view:View?=written_products_checkbox_arr[i]
             if(view is CheckBox){
