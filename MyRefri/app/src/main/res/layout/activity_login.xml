@@ -70,6 +70,7 @@
         app:layout_constraintVertical_bias="0.544" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="409dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
@@ -132,6 +133,20 @@
             app:layout_constraintVertical_bias="0.035" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="118dp"
+        android:text="Registrar"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
